@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML点线运动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canv');
+            var context = canvas.getContext('2d');
+            var ch = Math.floor(window.innerHeight / 1.3);
+            var cw = window.innerWidth;
+            canvas.width = cw;
+            canvas.height = ch;
+            var points = [];
+            var indexR1 = 2;
+            var indexG1 = -2;
+            var indexB1 = -2;
+            var indexR2 = -2;
+            var indexG2 = -2;
+            var indexB2 = 2;
+            var r1 = 200;
+            var g1 = 50;
+            var b1 = 50;
+            var r2 = 50;
+            var g2 = 50;
+            var b2 = 200;
+            var o = 1;
+            var maxColor = 200;
+            var minColor = 50;
+
+
+
+            changeColor();
+            createPoints();
+            //创建随机点
+            function createPoints() {
+                var posNum = Math.floor(canvas.width / 8);
+                for (var i = 0; i < posNum; i++) {
+                    points.push({
+                        x: Math.floor(Math.random() * (canvas.width-10) + 10),
+                        y: Math.floor(Math.random() * (canvas.height-10) + 10),
+                        radius: (Math.random() * 1.4 + 1.2).toFixed(1),
+                        speedX: Math.random() * 0.5 + (-0.2),
+                        speedY: Math.random() * 0.5 + (-0.2)
+                    });
+                }
+            }
+            //画点与线
+            function drawPoints() {
+                var poiColor = 'rgba(255,255,255,0.4)';
+                var lineColor = 'rgba(255,255,255,0.4)';
+                changeColor();
+                //点运动
+                for (var i = 0; i < points.length; i++) {
+                    context.save();
+                    context.beginPath();
+                    context.fillStyle = poiColor;
+                    context.moveTo(points[i].x, points[i].y);
+                    context.arc(points[i].x, points[i].y, points[i].radius, 0, 360 * Math.PI / 180, false);
+                    context.fill();
+                    context.closePath();
+                    context.restore();
+                    points[i].x += points[i].speedX;
+                    points[i].y += points[i].speedY;
+                    if (points[i].x < 2) {
+                        points[i].speedX *= -1;
+                    } else if (points[i].x > canvas.width - 2) {
+                        points[i].speedX *= -1;
+                    }
+                    if (points[i].y < 2) {
+                        points[i].speedY *= -1;
+                    } else if (points[i].y > canvas.height - 2) {
+                        points[i].speedY *= -1;
+                    }
+                    //画线
+                    for (var j = 0; j < points.length; j++) {
+                        if (points[i] != points[j]) {
+                            var a = points[i].x - points[j].x;
+                            var b = points[i].y - points[j].y;
+                            var c = Math.sqrt(a * a + b * b);
+                            if (c >= canvas.height/6 && c <= canvas.height/4) {
+                                context.save();
+                                context.lineWidth = 0.2;
+                                context.strokeStyle = lineColor;
+                                context.beginPath();
+                                context.moveTo(points[i].x, points[i].y);
+                                context.lineTo(points[j].x, points[j].y);
+                                context.stroke();
+                                context.restore();
+                            }
+                        }
+                    }
+                }
+                drawTitle();
+            }
+            //画字
+            function drawTitle() {
+                // var text1 = 'Hello World';
+                var text1 = "Hello ShariseMo";
+                var fontSize = Math.floor(canvas.height / 2.5);
+                context.save();
+                context.textAlign = 'center';
+                context.baseline = 'middle';
+                context.font = fontSize + 'px Arial';
+                context.fillStyle = 'rgba(255,255,255,0.2)';
+                context.fillText(text1, canvas.width / 2, (canvas.height + fontSize / 2) / 2);
+                context.font = fontSize + 'px Arial';
+                context.strokeStyle = 'rgba(255,255,255,0.6)';
+                context.strokeText(text1, canvas.width / 2, (canvas.height + fontSize / 2) / 2);
+                context.restore();
+            }
+            //背景色渐变
+            function changeColor() {
+
+                //背景色渐变
+                var oType1 = Math.floor(Math.random() * 2.9);
+                var oType2 = Math.floor(Math.random() * 2.9);
+                switch (oType1) {
+                    case 0:
+                        r1 += indexR1;
+                        break;
+                    case 1:
+                        g1 += indexG1;
+                        break;
+                    case 2:
+                        b1 += indexB1;
+                        break;
+                }
+                switch (oType2) {
+                    case 0:
+                        r2 += indexR2;
+                        break;
+                    case 1:
+                        g2 += indexG2;
+                        break;
+                    case 2:
+                        b2 += indexB2;
+                        break;
+                }
+                if (r1 >= maxColor) {
+                    indexR1 *= -1;
+                } else if (r1 <= minColor) {
+                    indexR1 *= -1;
+                }
+                if (r2 >= maxColor) {
+                    indexR2 *= -1;
+                } else if (r2 <= minColor) {
+                    indexR2 *= -1;
+                }
+                if (g1 >= maxColor) {
+                    indexG1 *= -1;
+                } else if (g1 <= minColor) {
+                    indexG1 *= -1;
+                }
+                if (g2 >= maxColor) {
+                    indexG2 *= -1;
+                } else if (g2 <= minColor) {
+                    indexG2 *= -1;
+                }
+                if (b1 >= maxColor) {
+                    indexB1 *= -1;
+                } else if (b1 <= minColor) {
+                    indexB1 *= -1;
+                }
+                if (b2 >= maxColor) {
+                    indexB2 *= -1;
+                } else if (b2 <= minColor) {
+                    indexB2 *= -1;
+                }
+                var obj = context.createLinearGradient(0, 0, canvas.width, 0);//颜色线性渐变
+                obj.addColorStop(0, 'rgba(' + r1 + ',' + g1 + ',' + b1 + ',' + o + ')');//0为起始点
+                obj.addColorStop(1, 'rgba(' + r2 + ',' + g2 + ',' + b2 + ',' + o + ')');//1为终点
+                context.fillStyle = obj;
+                context.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            setInterval(drawPoints, 60);
+            window.onresize = function () {
+                cw = window.innerWidth;
+                ch = Math.floor(window.innerHeight / 1.5);
+                canvas.width = cw;
+                canvas.height = ch;
+                points = [];
+                createPoints();
+
+            };
+        };
+    </script>
+</head>
+<body>
+<canvas id="canv"></canvas>
+</body>
+</html>
