@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>介绍页--单页</title>
+	<script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+</head>
+<style type="text/css">
+	*{padding:0;margin:0;}
+	body{background: #fff;font-family:"Helvetica";}
+	li{list-style-type:none;}
+	select{border:0px;}
+	a{cursor:pointer;}
+	
+	.content{margin-bottom:35px;}
+	/*top*/
+	.top{width:100%;height:50px;line-height:35px;border-bottom:1px solid #D4D4D4;color:#777;font-size:14px;}
+	.top nav .left{float:left;}
+	.top nav .right{float:right;width:20%;}
+	.top li{float:left;padding:10px;}
+	/*content*/
+	.btn{display:inline-block;cursor:pointer;padding:0 35px;height:55px;line-height:55px;text-align:center;background:#fff;font-weight:bold;margin-top:30px;font-size:14px;}
+	.btn1{color:#5064F1;box-shadow: 0 0 10px #ccc;}
+	.btn1:hover{background:#5064F1;color:#fff;}
+	.btn2{color:#333;border-radius:3px;}
+	.btn2:hover{color:#fff;background:#333;}
+	.btn3{box-shadow: 0 0 10px #ccc;}
+
+	.btn4{background: #333;color:#fff;border-radius:3px;margin-left:20px;}
+	.clear{clear:both;}
+	.home{text-align:center;max-width:550px;margin:0 auto;margin-top:50px;}
+	h1{font-size:62px;font-weight:normal;padding-bottom:20px;}
+	h2{font-size:50px;font-weight:normal;padding-bottom:20px;}
+	h3{font-size:25px;font-weight:normal;padding:10px 0;}
+	p{color:#777777;font-size:18px;}
+	.bigImg{width:100%;}
+	.feature{text-align:center;max-width:1200px;margin:0 auto;margin-top:50px;}
+	.feaList li{width:40%;float:left;padding:2% 5%;min-height:265px;height:265px;vertical-align:middle;}
+	.feaList li p{font-size:15px;width:70%;margin:10px auto;}
+	.feaList li img{height:130px;}
+	.fImgWrap{width:100%;text-align:center;}
+	.howTo{width:100%; background: -webkit-linear-gradient( top left,#EE6274,#FE9E49); background: linear-gradient( top,#ccc,#000);color:#fff;}
+	.howTo .left {float:left;width:30%;padding:10% 10%;}
+	.howTo .left p{color:#fff;font-size:14px;}
+	.howTo .right{float:left;width:50%;padding:5% 0;}
+	.howTo .right .howToImg{box-shadow:-15px 15px 15px rgba(0,0,0,0.3);transform: translateX(0px);transition: transform 1s linear 0s;}
+	/*.howTo .right .howToImg:hover{transform: translateX(-40px);transition: transform 1s linear 0s;}*/
+	.howTo:hover .howToImg{transform: translateX(-40px);transition: transform 1s linear 0s;}
+
+	
+	.openShop{max-width:550px;margin:100px auto;padding:5% 0;text-align:center;background:url(./img/log-become-seller-bg.jpg) no-repeat;background-size:100%;}
+	/*footer*/
+	.footer{bottom:0;width:100%;}
+	.footer .linkList{max-width:1200px;margin:0 auto;}
+	.footer .linkList li{font-size:14px;font-weight: normal;}
+	.footer .linkList>li{float:left;width:15%;padding:2.5%;font-weight:bold;}
+	.copyright{height:35px;line-height:35px;background:#fff;border-top:1px solid #D4D4D4;text-align:center;}
+
+	/*login*/
+	.loginForm{width:40%;margin:20% auto;position:relative;}
+	input{border:0px;border-bottom:1px solid #ccc;height:45px;line-height:45px;width:95%;padding:0 10px;outline:none  }
+	/*input:active{border:0px;border-bottom:1px solid #ccc;}*/
+	.input1{width:45%;}
+	.tips{text-decoration: underline;font-size:13px;}
+	.close{position:absolute;top:-100px;right:-100px;cursor:pointer;transform:rotate(45deg);transition:transform 0.3s ease-in;color:#333;font-size:40px;}
+	.close:hover{transform:rotate(225deg);transition:transform 0.3s ease-in;}
+	
+</style>
+<body>
+	<div class="main">
+		<div class="top">
+			<nav>
+				<ul class="left">
+					<li style="width:100px;">Logo</li>
+					<li>
+						<select>
+							<option>ALL PRODUCTS</option>
+							<option value=""><a>MOST RECENT</a></option>
+							<option value=""><a>EXCLUSIVE</a></option>
+							<option value=""><a>HOT</a></option>
+							<option value=""><a>DEALS</a></option>
+							<option value=""><a>ICONS</a></option>
+						</select>
+					</li>
+					<li><a>EXCLUSIVE PRODUCT</a></li>
+					<li><a>DEALS PRODUCT</a></li>
+					<li><a>FREEBIES</a></li>
+					<li><a>BECOME SELLER</a></li>
+				</ul>
+				<ul class="right">
+					<li><a id="search">SEARCH</a></li>
+					<li><a>CONNECT</a></li>
+					<li><a>CART</a></li>
+				</ul>
+				<div class="clear"></div>
+			</nav>
+		</div>
+		<div class="content">
+		<!-- home -->
+			<div class="home">
+				<h1>Become a Seller</h1>
+				<p>Start to sell your awesome products today, upload creative designs and receive up to 85% for each sale. Get analytics from your users, set your own prices, track your sales and feedbacks on your products. </p>
+				<a class="btn btn1">OPEN A SHOP</a>
+			</div>
+			<div class="bigImg"><img src="./img/home.png" width="100%"></div>
+			<!-- feature -->
+			<div class="feature">
+				<h2>Features</h2>
+				<p>Discover our awesome features and become a seller today. </p>
+				<ul class="feaList">
+					<li>
+						<div class="fImgWrap"><img src="./img/features-1.png"></div>
+						<h3>Earn up to 85% on each sale</h3>
+						<p>We know how time consuming it can be to create awesome products like yours. Earn up to 85% on exclusive products and 68% for non-exclusive. You deserve it !</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-2.png"></div>
+						<h3>Set your own Price</h3>
+						<p>You are in control: you can decide the price you want and edit your product at anytime. It is so simple !</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-3.png"></div>
+						<h3>Refund Yourself</h3>
+						<p>Manage your clients in the best possible way and refund them yourself. You are in control of your shop</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-4.png"></div>
+						<h3>Be Exclusive</h3>
+						<p>When you turn exclusive seller at MarketMe all of your products are automatically posted on our home page and will be enlighten for their entire lifetime there</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-6.png"></div>
+						<h3>Fast Approval</h3>
+						<p>We are doing our best to check your page presentation as quickly as we can and we are getting back to you with an email to confirm you that everything is alright</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-7.png"></div>
+						<h3>Stats tracker</h3>
+						<p>You can track all the stats and have some useful insights on your products situation : visits, views, likes, sales...</p>
+					</li>
+					<li>
+						<div class="fImgWrap"><img src="./img/features-8.png"></div>
+						<h3>And much more…</h3>
+						<p>Many other awesome killer features will be added in the next few weeks.</p>
+					</li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<!-- how does it  look  -->
+			<div class="howTo">
+				<div class="left">
+					<ul>
+						<li><h2>How does it look ?</h2></li>
+						<li><p>Start today to sell your creative design and receive up to 85% for each sale and upload any kind of creative product. Get analytics from your users, set your own price and upload new products quickly.</p></li>
+						<li><a class="btn btn2">OPEN A SHOP</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="howToImg"><img src="./img/looks-dashboard.jpg" width="100%"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- open your shop -->
+			<div class="openShop">
+				<h3>Open your Shop</h3>
+				<a class="btn btn2 btn3" onclick="login()">LOGIN AND BECOME A SELLER</a>
+			</div>
+		</div>
+		<div class="footer">
+			<div>
+				<ul  class="linkList">
+					<li>MARTET
+						<ul>
+							<li>Hot Products</li>
+							<li>Exclusive</li>
+							<li>All Products</li>
+						</ul>
+					</li>
+					<li>MARTET
+						<ul>
+							<li>Hot Products</li>
+							<li>Exclusive</li>
+							<li>All Products</li>
+						</ul>
+					</li>
+					<li>MARTET
+						<ul>
+							<li>Hot Products</li>
+							<li>Exclusive</li>
+							<li>All Products</li>
+						</ul>
+					</li>
+					<li>MARTET
+						<ul>
+							<li>Hot Products</li>
+							<li>Exclusive</li>
+							<li>All Products</li>
+						</ul>
+					</li>
+					<li>MARTET
+						<ul>
+							<li>Hot Products</li>
+							<li>Exclusive</li>
+							<li>All Products</li>
+						</ul>
+					</li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="copyright">&copy;2016</div>
+		</div>
+	</div>
+
+
+	<!-- loginForm -->
+	<div class="loginForm">
+		<form>
+			<p>
+				<input type="text" name="" placeholder="First Name" class="input1"/>
+				<input type="text" name="" placeholder="Last Name" class="input1"/ >
+			</p>
+			<p><input type="text" name="" placeholder="Email Address" /></p>
+			<p><input type="text" name="" placeholder="Password" /></p>
+			<p><input type="text" name="" placeholder="Retype Password" /></p>
+			<div>
+				<a class="tips">I already have a MarketMe account</a>
+				<a class="btn btn4">CREATE ACCOUNT</a>
+			</div>
+		</form>		
+		<span class="close">+</span>
+	</div>
+
+
+	<script type="text/javascript">
+		var howToOffset = $(".howTo").offset().top;
+		var openShop = $(".openShop").offset().top;
+		console.log(howToOffset);
+		var scrollTop = $(document).scrollTop();
+		console.log(scrollTop);
+	
+
+		$(function(){
+			$('.loginForm').hide();
+			$(".close").click(()=>{
+				$(".loginForm").fadeOut();
+				$(".main").fadeIn();
+			});
+		});
+
+		function login(){
+			$(".loginForm").fadeIn();
+			$(".main").fadeOut();
+		}
+	</script>
+</body>
+</html> 
