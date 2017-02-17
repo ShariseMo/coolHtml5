@@ -1,0 +1,74 @@
+@charset="utf-8";
+*{margin:0;padding:0;font-family:"Microsoft-YaHei";}
+a{text-decoration:none;}
+li{list-style-type:none;}
+h1,h2,h3,h4{text-align:center;}
+h1{font-size:0.7rem;}
+h2{font-size:0.5rem;}
+h3{font-size:0.35rem;}
+h4{font-size:0.28rem;}
+h5{font-size:0.10rem;height:0.35rem;}
+body{position:absolute;width:100%;height:100%;overflow:hidden;background:#FFEE83;}
+.hidden{display:none;}
+.btn_white{display:inline-block;padding:0.2rem 0.5rem;background:rgba(255,255,255,0.8);text-align:center;margin:0.2rem auto;font-size:0.3rem;border-radius:3px;color:#333;}
+.btn_orange{display:inline-block;width:96%;height:0.8rem;line-height:0.8rem;margin:0.2rem auto;background:#FE8526;color:#fff;border-radius:2px;text-align:center;}
+
+.page_bg{position:absolute;width:100%;height:100%;z-index:1;}
+.page_container{position:relative;width:88%;height:88%;margin:6%;z-index:99;}
+.page_content{height:100%;padding:0.2rem;font-size:0.35rem;}
+
+/*=============购买入场券===============*/
+.page1{height:100%;color:#fff;text-align:center;border:1px solid #eee;}
+.info1{width:90%;margin:0.5rem auto;height:4rem;background:url(../img/ticket_border.png) no-repeat;background-size:100% 100%;}
+.info1_content{position:absolute;left:0.9rem;top:0.2rem;}
+.info2{margin-top:1rem;}
+.info3{margin-top:0.5rem;}
+
+.page2{height:100%;background:rgba(255,255,255,0.8);}
+.content li{line-height:0.7rem;}
+.operBox{margin-top:0.5rem;text-align:center;}
+
+.page3{height:100%;background:rgba(255,255,255,0.8);}
+.clientType{display:inline-block;width:100%;height:0.7rem;background:#fff;text-align:center;}
+.page3 .content li{line-height:0.8rem;font-size:0.25rem;}
+.infoInput{width:96%;line-height:0.7rem;border:0px;padding:0 2%; background:#fff;}
+.ticketCount{width:1rem;height:0.6rem;line-height:0.6rem;border:0;text-align:center;}
+
+/*dialog*/
+.mask{position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,0.5);z-index:999;}
+.dialog{position:relative;width:80%;margin:30% 10%;background:#fff;border-radius:5px;font-size:0.4rem;}
+.dialogTitle{padding:0 5% 0 10%;height:1.0rem;line-height:1.0rem;border-bottom:1px solid #E4E2E1;}
+/*.dialogTitle:before{
+    content:"";
+    background:url(./img/ok.png) 100% no-repeat;
+    position:absolute;
+    left:0.2rem;
+    top:0.2rem;
+    width:0.5rem;
+    height:0.5rem;
+}*/
+.dialogContent li{padding:3% 5%;border-bottom: 1px solid #E4E2E1;}
+.dialogContent .confirmInfoList li{border-bottom: 0;}
+.dialogContent .operBox{margin-top:0;padding-top:0.2rem;}
+#maskConfirm .operBox{border-top:1px solid #E4E2E1;}
+.otherClient{width:2rem;height:0.5rem;line-height:0.5rem;background:#fff;}
+.btn_close{position:absolute;display:inline-block;width:0.8rem;height:1.0rem;line-height:1.0rem;right:0;border-left:1px solid #E4E2E1;text-align:center;font-size:0.6rem;color:#aaa;}
+.btn{display:inline-block;width:1.4rem;height:0.7rem;margin-bottom:0.2rem;line-height:0.7rem;text-align:center;border-radius:2px;}
+.btn_ok{background:#FE8526;color:#fff;}
+.btn_cancel{background: #F2F4F5;color:#666666;border:1px solid #D1D1D1;}
+
+/*===================购买入场券END===================*/
+
+/*===================没有入场券==================*/
+.pageNoTicket{background:rgba(255,255,255,0.8);}
+.noTicketTips{text-align:center;margin:3rem auto;}
+.noTicketTips h4{display:inline-block;width:50%;height:0.8rem;line-height:0.8rem;}
+/*.noTicketTips:before{
+  content:"";
+  background:url(../img/warn.png) 100% no-repeat;
+  position:absolute;
+  width:20px;
+  height:20px;
+  left:50px;
+  top:50px;
+}*/

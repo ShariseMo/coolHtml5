@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>购买入场券</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <img src="./img/content_bg.png" class="page_bg">
+    <div class="page_container">
+        <!-- page1 -->
+        <div class="page_content page1" id="page1">
+            <div class="info1">
+                <div class="info1_content">
+                    <div class="title">
+                        <h1>入场券</h1>
+                        <h4>ticket</h4>
+                    </div><br>
+                    <h3>2017年EDS-i智能▪生态▪共享</h3>
+                    <h3>&E淘市代签约发布会</h3><br><br><br>
+                    <h4>活动时间：2017年3月16日</h4>
+                    <h4>地点：星光联盟11楼国宴厅</h4>
+                </div> 
+            </div>
+            <div class="info2">
+                <h3>报名截止时间</h3>
+                <p>2017年3月10日（限定参会人数1000人）</p>            
+            </div>   
+            <div class="info3">
+                <h3>工作人员联系方式</h3>
+                <p>电话：15127611367</p>
+                <p>微信号：dafg15</p>
+            </div>
+            <p class="operBox"><a href="javascript:void(0)" class="btn_white" id="btnGet">立即获取</a></p>
+        </div>
+       
+       <!-- page2 -->
+       <div class="page_content page2 hidden" id="page2">
+            <div class="title">
+                <h2>参会须知</h2>
+                <h4>READ ME</h4>
+            </div>
+            <div class="content">
+                <p><b>会务费收取:</b></p>
+                <ol>
+                    <li>1、会务费用途：用于3月16日会议参会人员的部分支出。</li>
+                    <li>2、会务费金额：500元/人</li>
+                    <li>3、本次发布会开放式报名，EDS会员商城会员、工厂、全国经销商及其他各行业嘉宾都可报名参加！</li>
+                    <li>4、限定参会人员1000人，名额有限，请尽快提交报名！</li>
+                    <li>5、收款方式：微信支付</li>
+                </ol>
+                <p class="operBox"><a href="javascript:void(0)" class="btn_white" id="btnKnow">我知道了</a></p>
+            </div>  
+       </div>
+
+       <!-- page3 -->
+       <div class="page_content page3 hidden" id="page3">
+           <div class="title">
+                <h2>填写报名表</h2>
+                <h4>FILL IN</h4>
+            </div>
+            <div class="content">
+                <form id="infoForm">
+                    <p>基本信息</p>
+                    <ol>
+                        <li><input type="hidden" name="clientType"><label for="clientType" class="clientType" id="clientType">我是工厂</label></li>
+                        <li><input type="text" class="infoInput" name="company" placeholder="* 参会公司信息(填写格式：城市+公司名)"/></li>
+                        <li><input type="text" class="infoInput" name="tel" placeholder="* 联系电话"/></li>
+                        <li><input type="text" class="infoInput" name="contactName" placeholder="* 联系人姓名"/></li>
+                        <li><input type="text" class="infoInput hidden" name="brand" placeholder="* 品牌"/></li>
+                        <li>共购买入场券：<input type="text" name="ticketCount" value="2" class="ticketCount"> 张</li>
+                    </ol>
+                    <div class="ticket"><img src="./img/ticket.jpg" width="100%"/></div>
+                    <p class="operBox"><a href="javascript:void(0)" class="btn_orange" id="infoSubmit">提交</a></p>
+                </form>
+            </div> 
+       </div>
+    </div>
+
+    <!-- ==================弹框 (fill info)====================-->
+    <div class="mask hidden" id="maskFillIn">
+        <div class="dialog">
+            <div class="dialogTitle">客户类型 <a class="btn_close">x</a></div>
+            <div class="dialogContent">
+                <ul>
+                    <li><label for="shop"><div><input type="radio" name="clientItem" value="EDS会员商城" id="shop"> EDS会员商城</div></label></li>
+                    <li><label  for="seller"><div><input type="radio" name="clientItem" value="全国经销商" id="seller"> 全国经销商</div></label></li>
+                    <li><label for="factory"><div><input type="radio" name="clientItem" value="工厂" id="factory"> 工厂</div></label></li>
+                    <li><label for="other"><div><input type="radio" name="clientItem" value="" id="other"> 其他 <input type="text" name="other" class="otherClient" id="otherClient"></div></label></li>
+                </ul>
+                <div class="operBox">
+                    <a href="#" class="btn btn_ok" onclick="selectClientOk()">确认</a>
+                    <a href="#" class="btn btn_cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- info confirm dialog -->
+    <div class="mask hidden" id="maskConfirm">
+        <div class="dialog">
+            <div class="dialogTitle">确认报名信息<a class="btn_close">x</a></div>
+            <div class="dialogContent">
+                <ul class="confirmInfoList">
+                    <li>参会公司：<span id="cCompany"></span></li>
+                    <li>联系号码：<span id="cTel"></span></li>
+                    <li>联系人姓名：<span id="cContactName"></span></li>
+                    <li>共购买入场券：<span id="cTicketCount"></span>张</li>
+                    <li></li>
+                </ul>
+                <div class="operBox">
+                    <a href="#" class="btn btn_ok">确认</a>
+                    <a href="#" class="btn btn_cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/screenAdapt.js"></script>
+    <script type="text/javascript">
+
+        $("#btnGet").click(function(){
+            $("#page2").fadeIn();
+            $("#page1").hide();
+        });
+
+        $("#btnKnow").click(function(){
+            $("#page3").fadeIn();
+            $("#page2").hide();
+        });
+
+        $("#clientType").click(function(){
+            $("#maskFillIn").show();
+        });
+            
+        $(".btn_close").click(function(){
+           $(".mask").hide();
+        });
+
+        $(".btn_cancel").click(function(){
+            $(".mask").hide();
+        });
+          
+    
+        $("#infoSubmit").click(function(){
+            $("#maskConfirm").show();
+            // 获取输入值
+            var ct = $("input[name=clientType]").html();
+            var company = $("input[name=company]").val();
+            var tel = $("input[name=tel]").val();
+            var contactName = $("input[name=contactName]").val();
+            var ticketCount = $("input[name=ticketCount]").val();
+            // 赋值给确认框
+            $("#cCompany").html(company);
+            $("#cTel").html(tel);
+            $("#cContactName").html(contactName);
+            $("#cTicketCount").html(ticketCount);
+        });
+
+
+        // 选择完客户类型后返回
+        function selectClientOk(){
+            var clientType = $("input[name=clientItem]");
+            $("input[name=clientType]").val($("#clientType").html());
+            $("#other").val($("#otherClient").val());
+           
+            for(var i = 0; i<clientType.length;i++){
+                if(clientType[i].checked){
+                    $("#clientType").html(clientType[i].value);
+                    $(".mask").hide();
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

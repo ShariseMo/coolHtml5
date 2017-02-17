@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>入场券信息</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <div class="page_container">
+    	<div class="page_container_box">
+	        <div class="page_content pageNoTicket">
+	        	<div class="scroll">
+		            <div class="title">
+		                <h1>入场券信息</h1>
+		                <h4>TICKET</h4>
+		            </div>
+		            <div class="content">
+		            	<div class="ticketDetial">
+		            		<h5>购买人：</h5>
+		            		<p>公司名称：阿斯蒂芬公司</p>
+		            		<p>联系电话：8888888888</p>
+		            		<p>联系人：阿阿斯顿发斯蒂芬</p>
+		            		<p>共购买3张券</p>
+		            		<p><span>备注：</span>请填写下列入场券信息，用于晚会抽奖（每张券的信息只能修改一次）</p>
+		            	</div>
+		            	<!--ticket循环 start-->		            
+		            	<div class="ticketBox">
+		            		<img src="img/ticket-2.png" alt="" />
+		            		<p class="name txt">联系人姓名</p>
+		            		<input class="name hidden" type="text" value="" placeholder="联系人姓名"/>
+		            		<p class="phone txt">联系电话</p>
+		            		<input class="phone hidden" type="number" value="" placeholder="联系电话"/>
+		            		<div class="button">
+		            			<a href="javascript:void(0);" class="view">查看</a>
+		            			<a href="javascript:void(0);" class="edit" data-s="0">编辑</a>
+		            		</div>
+		            	</div>
+		            	
+		               	<!--ticket循环 end-->
+		               
+		            </div>
+	            </div>
+	            <div class="ticketDetialBottom">
+	            	<a href="ticket_buy.html" class="btn_orange">继续购买</a>
+	            </div>	            
+	        </div>
+        </div>
+    </div>
+
+<!--弹出层-->
+<div class="mask">
+	<div class="mask_main">
+		<img src="img/ticket-bg.jpg"/>
+		<div class="txt">
+			<p class="tit">EDS-i 智能&bull;生态&bull;共享&amp;E淘市代 签约发布会</p>
+			<h1>入场券</h1>
+			<div style="margin-top:.5rem;"><i>公司名称：</i><span class="ticketCompy">阿斯蒂芬公司</span></div>
+			<div><i>姓名：</i><span class="ticketName">阿斯蒂芬</span></div>
+			<div><i>联系电话：</i><span class="ticketPhone">8888888888888</span></div>
+			<div class="code" id="qrcode"></div>
+		</div>
+		<div class="bottom">
+			<p>活动时间：2017年3月16日</p>
+			<p>地址：星光联盟11楼国宴厅</p>
+		</div>
+	</div>
+</div>
+
+
+    <script type="text/javascript" src="./js/screenAdapt.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script>
+    	//编辑入场券
+    	$(".edit").on("click",function(){
+    		var o = $(this).parent().parent(".ticketBox"),
+    			p = o.find("p"),
+    			i = o.find("input"),
+    			s = $(this).attr("data-s");
+    			
+    		if(s == 0){
+    			p.addClass("hidden");
+    			i.removeClass("hidden");
+    			$(this).html('完成').attr("data-s",1);
+    			
+    		}else{
+    			p.removeClass("hidden");
+    			i.addClass("hidden");
+    			$(this).html('编辑').attr("data-s",0);
+    			edit(o);
+    		}
+    		
+    	});
+    	
+    	function edit(o){
+    		var a = [],
+    		  obj = o.find("input"),
+    	   target = o.find(".txt");
+    	   
+			for(var i=0;i<obj.length;i++){
+				if(obj.eq(i).val() != ''){
+					target.eq(i).html(obj.eq(i).val());	
+				}
+			}    		
+    	}
+    	
+    	//查看入场券
+    	$(".view").on("click",function(){
+    		var o = $(this).parent().parent(".ticketBox"),
+    		 name = o.find(".name").html(),
+    		phone = o.find(".phone").html();
+    		 
+    		$(".ticketName").html(name);
+    		$(".ticketPhone").html(phone);
+    		$(".mask").fadeIn(300);
+    	});
+    	
+    	$(".mask").on("click",function(){
+    		$(this).fadeOut(300);
+    	});
+    	
+    	//code
+    	var qrcode = new QRCode('qrcode', {
+		  text: '这是二维码',
+		  width: 256,
+		  height: 256,
+		  correctLevel : QRCode.CorrectLevel.H
+		});
+    </script>
+</body>
+</html>

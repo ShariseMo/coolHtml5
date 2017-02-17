@@ -1,0 +1,116 @@
+@charset="utf-8";
+*{margin:0;padding:0;font-family:"Microsoft-YaHei";}
+a{text-decoration:none;}
+li{list-style-type:none;}
+h1,h2,h3,h4{text-align:center;font-weight: normal;}
+h1{font-size:0.6rem;}
+h3{font-size:0.4rem;}
+h4{font-size:0.3rem;}
+input[type=button]{ -webkit-appearance:none; outline:none }
+body{position:absolute;max-width:750px;min-height:480px;margin:0 auto;left:0;top:0;bottom:0;right:0;overflow:hidden;background:url(../img/bg.png) no-repeat  left top;background-size:cover;}
+.hidden{display:none !important;}
+.btn_white{display:inline-block;padding:0.15rem 0.5rem;background:rgba(255,255,255,0.8);text-align:center;margin:0.2rem auto;font-size:0.3rem;border-radius:3px;color:#333;}
+.btn_orange{display:block;width:90%;height:0.8rem;bottom:1rem;line-height:0.8rem;margin:0.2rem auto;background:#FE8526;color:#fff;border-radius:2px;text-align:center;}
+
+.page_container{position: absolute; bottom: 0; left: 0; right: 0; top: 0; margin: 5%;}
+.page_container_box{position: absolute; bottom: 0; left: 0; right: 0; top: 0;padding:5%;border:1px solid #fff;}
+.page_content{position:relative;height:93%;padding:5%;border:1px solid #B0B0B5;font-size:0.35rem;}
+.scroll{height:88%;overflow-y:auto ;}
+
+/*=============购买入场券===============*/
+.page1{color:#fff;text-align:center;}
+.info1{position:relative;width:100%;margin:0 auto;height:4rem;background: url(../img/frame.png) no-repeat center center;background-size:100% ;}
+.info1 h1{position:absolute;top:-0.1rem;left:33%;font-weight: 500;}
+.info1 h3{padding-top:.6rem;letter-spacing: .1rem;font-weight: 200;font-size: .3rem;}
+.info1 .txt{width: 84%;margin:0 auto;position: absolute;bottom:.1rem;left:7%;}
+.info1 p{margin-bottom:.2rem;}
+.info1 em{display:block;margin-top:.05rem;font-style: normal;font-size: .25rem;}
+.info2{position:absolute;width:90%;bottom:0rem;}
+/*.info3{margin-top:0.5rem;}*/
+.info2 h3{}
+.info2 h3:nth-child(3){padding-top:.2rem;}
+.info2 p{font-size: .28rem;}
+
+
+
+.page2{display:none;position:relative;background:rgba(255,255,255,0.8);}
+.content li{line-height:0.7rem;}
+.operBox{display:block;width:60%;margin:0 auto;margin-top:0.2rem;text-align:center;}
+.page2 .content{padding-top:.4rem;}
+.page2 .button{position:absolute;bottom:.3rem;left:20%;}
+.page2 .scroll{height: 70%;}
+
+.page3{display:none;background:rgba(255,255,255,0.8);}
+/*.clientType{display:block;width:100%;height:0.7rem;background:#fff;border:none;    padding: 0 2%;}*/
+.clientType{color:#a9a9a9;}
+.clientType.active{color:#000;}
+.page3 .content li{margin:.1rem 0;}
+.infoInput{width:96%;line-height:0.7rem;border:0px;padding:0 2%; background:#fff;font-size:.25rem;border-radius: .05rem;}
+.ticketCount{width:1rem;height:0.6rem;line-height:0.6rem;border:0;text-align:center;font-size:.25rem;}
+.page3 .button{position:absolute;bottom:.3rem;left:0;width: 100%;}
+.page3 .remark{position:absolute;bottom:.1rem;left:0;width: 100%;text-align:center;font-size:.2rem;}
+.page3 .scroll{height: 70%;}
+
+.tip,.tip2{display:none;z-index: 99999;position: fixed; font-size: .4rem; text-align: center; color: #fff; top: 20%; left: 25%; width: 50%; background: rgba(0,0,0,.7); height: 1rem; line-height: 1rem; border-radius: .15rem;}
+/*dialog*/
+.mask{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);}
+.dialog{position:relative;width:80%;margin:15% 10%;background:#fff;border-radius:5px;font-size:0.4rem;}
+.dialogTitle{padding:0 5% 0 10%;height:1.0rem;line-height:1.0rem;border-bottom:1px solid #E4E2E1;}
+
+.dialogContent li{padding:3% 5%;border-bottom: 1px solid #E4E2E1;}
+.dialogContent .confirmInfoList{border:1px solid #E4E2E1;}
+.dialogContent .confirmInfoList li{border-bottom: 0;}
+.dialogContent .operBox{margin-top:0;padding-top:0.2rem;}
+.selectType li{}
+.selectType li:before{content:'';display: inline-block;width:.4rem;height: .4rem;margin-right:.2rem;background: url(../img/selectOff.png) no-repeat center center/100%;vertical-align: sub;}
+.selectType li.active:before{background: url(../img/selectOn.png) no-repeat center center/100%;}
+.selectType input{display: none;}
+.selectType input.other{display:inline-block;width: 55%;height: .4rem;margin-left:.1rem;padding:.05rem;vertical-align: middle;}
+
+.otherClient{width:2rem;height:0.5rem;line-height:0.5rem;background:#fff;}
+.btn_close{position:absolute;display:inline-block;width:0.8rem;height:1.0rem;line-height:1.0rem;right:0;border-left:1px solid #E4E2E1;text-align:center;font-size:0.6rem;color:#aaa;}
+.btn{display:inline-block;width:1.4rem;height:0.7rem;margin-bottom:0.2rem;line-height:0.7rem;text-align:center;border-radius:2px;}
+.btn_ok{background:#FE8526;color:#fff;}
+.btn_cancel{background: #F2F4F5;color:#666666;border:1px solid #D1D1D1;}
+
+/*===================购买入场券END===================*/
+
+/*===================没有入场券==================*/
+.pageNoTicket{background:rgba(255,255,255,0.8);}
+.noTicketTips{text-align:center;margin:3rem auto;}
+.noTicketTips h4{display:inline-block;width:100%;height:0.8rem;line-height:0.8rem;}
+.noTicketTips h4:before{content: "";display: inline-block;width:.4rem;height: .4rem;background: url(../img/warn.png) no-repeat center center;background-size: 100%;vertical-align: sub;margin-right: .1rem;}
+
+/*有入场券*/
+.ticketDetial{}
+.ticketDetial h5{font-size:.35rem;}
+.ticketDetial p{font-size:.3rem;margin:.2rem 0;}
+.ticketDetial p span{color:red;}
+
+.ticketBox{position:relative;}
+.ticketBox img{width: 100%;}
+.ticketBox p,.ticketBox input{position:absolute;height:.5rem;line-height:.5rem;text-align: center;font-size:.35rem;}
+.ticketBox p{display:block;width:100%;left:0;color:#fff;}
+.ticketBox input{width:80%;left:10%;border:none;color:#999;border-radius: 0;}
+.ticketBox .name{top:.4rem;}
+.ticketBox .phone{top:1rem;}
+.ticketBox .button{position: absolute;right: 0;bottom:.3rem;}
+.ticketBox .button a{padding:.06rem .3rem;margin:0 .1rem;text-align:center;border-radius:.08rem;border:1px solid #fff;font-size:.25rem;color: #fff;background: rgba(256,256,256,.3);}
+
+.ticketDetialBottom{position:absolute;width: 100%;left:0;bottom:0;/*background: rgba(255,255,255,0.8);*/}
+.ticketDetialBottom a{}
+
+/*view ticket*/
+.mask_main{position:absolute;left:0;top:0;bottom:0;right:0;padding:5%;}
+.mask_main img{width: 100%;height:100%;}
+.mask_main .txt{position: absolute;width:80%;left:10%;top:1rem;color:#ffc571;font-size: .3rem;}
+.mask_main .txt .tit{width: 80%;margin:0 auto;font-size:.4rem;text-align: center;}
+.mask_main .bottom{position: absolute;width: 80%;bottom: 1rem;left:10%;font-size:.3rem;text-align: center;color:#ffc571 ;}
+.mask_main .txt >div{width: 70%;margin:.2rem auto;}
+.mask_main .txt >div i,.mask_main .txt >div span{display:inline-block;}
+.mask_main .txt >div i{font-style: normal;width: 40%;text-align: right;} 
+.mask_main .txt >div span{width:60%;text-align: center;background: #ffc571;color:#000;}
+.mask_main div.code{width:2rem;height: 2rem;margin-top:.2rem;padding:.1rem;background: #fff;}
+.mask_main div.code img{width:100%;height: 100%;}
+#qrcode img{width:100% !important;height:100% !important;}
+

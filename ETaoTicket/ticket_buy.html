@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title>购买入场券</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <div class="page_container">
+    	<div class="page_container_box">
+	        <!-- page1 -->
+	        <div class="page_content page1" id="page1">
+	            <div class="info1">
+	            	<h1>入场券</h1>
+	            	<h3>ticket</h3>
+	            	<div class="txt">
+	            		<p>2017年EDS-i 智能&bull;生态&bull;共享&amp;E淘市代 签约发布会</p>
+	            		<em>活动时间：2017年3月16日</em>
+	            		<em>地点：星光联盟11楼国宴厅</em>
+	            	</div>
+	            </div>
+	            <div class="info2">
+	                <h3>报名截止时间</h3>
+	                <p>2017年3月10日（限定参会人数1000人）</p>
+	                <h3>工作人员联系方式</h3>
+	                <p>电话：15127611367</p>
+	                <p>微信号：dafg15</p>
+	                <p class="operBox"><a href="javascript:void(0)" class="btn_white" id="btnGet">立即获取</a></p>
+	            </div>   
+	        </div>
+	       
+	       	<!-- page2 -->
+	       	<div class="page_content page2" id="page2">
+	            <div class="title">
+	                <h1>参会须知</h1>
+	                <h4>READ ME</h4>
+	            </div>
+	            <div class="scroll">
+		            <div class="content">
+		                <p><b>会务费收取:</b></p>
+		                <ol>
+		                    <li>1、会务费用途：用于3月16日会议参会人员的部分支出。</li>
+		                    <li>2、会务费金额：500元/人</li>
+		                    <li>3、本次发布会开放式报名，EDS会员商城会员、工厂、全国经销商及其他各行业嘉宾都可报名参加！</li>
+		                    <li>4、限定参会人员1000人，名额有限，请尽快提交报名！</li>
+		                    <li>5、收款方式：微信支付</li>
+		                </ol>
+		                <p class="operBox button"><a href="javascript:void(0)" class="btn_white" id="btnKnow">我知道了</a></p>
+		            </div> 
+	            </div>
+	       	</div>
+	
+	       	<!-- page3 -->
+	       	<div class="page_content page3" id="page3">
+	           <div class="title">
+	                <h1>填写报名表</h1>
+	                <h4>FILL IN</h4>
+	            </div>
+	            <div class="scroll">
+		            <div class="content">
+		                <form id="infoForm">
+		                    <p>基本信息</p>
+		                    <ol>
+		                        <li><div class="infoInput clientType">* 我是</div><input type="hidden"  id="clientType" name="clientType" value=""></li>
+		                        <li><input type="text" class="infoInput" name="company" placeholder="* 参会公司信息(填写格式：城市+公司名)"/></li>
+		                        <li><input type="number" class="infoInput" name="tel" placeholder="* 联系电话"/></li>
+		                        <li><input type="text" class="infoInput" name="contactName" placeholder="* 联系人姓名"/></li>
+		                        <li><input type="text" class="infoInput brand" name="brand" placeholder="* 品牌" style="display: none;"/></li>
+		                        <li>共购买入场券：<input type="number" name="ticketCount" value="2" class="ticketCount"> 张</li>
+		                    </ol>
+		                    <div class="ticket"><img src="./img/ticket.jpg" width="100%"/></div>
+		                    <p class="operBox button"><a href="javascript:void(0)" class="btn_orange" id="infoSubmit">提交</a></p>
+		                </form>
+		                <p class="remark">艾文凯迪投资有限公司</p>
+		            </div>
+		        </div>
+	       	</div>
+        </div>
+    </div>
+    
+<!--==弹框 (fill info)==-->
+
+    <div class="mask" id="maskFillIn">
+        <div class="dialog">
+            <div class="dialogTitle">客户类型 <a class="btn_close">x</a></div>
+            <div class="dialogContent">
+                <ul class="selectType">
+                    <li>EDS会员商城<input type="txt" value="EDS会员商城"></li>
+                    <li>全国经销商<input type="txt" value="全国经销商"></li>
+                    <li data-type="brand">工厂<input type="txt" value="工厂"></li>
+                    <li>其他<input type="txt" name="clientItem" value="" class="other"></li>
+                </ul>
+                <div class="operBox">
+                    <a href="javascript:void(0)" class="btn btn_ok" onclick="selectClientOk()">确认</a>
+                    <a href="javascript:void(0)" class="btn btn_cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- info confirm dialog -->
+    <div class="mask" id="maskConfirm">
+        <div class="dialog">
+            <div class="dialogTitle">确认报名信息<a class="btn_close">x</a></div>
+            <div class="dialogContent">
+                <ul class="confirmInfoList">
+                    <li>参会公司：<span id="cCompany"></span></li>
+                    <li>联系号码：<span id="cTel"></span></li>
+                    <li>联系人姓名：<span id="cContactName"></span></li>
+                    <li style="display: none;">品牌：<span id="cBrand"></span></li>
+                    <li>共购买入场券：<span id="cTicketCount"></span>张</li>
+                    <li></li>
+                </ul>
+                <div class="operBox">
+                    <a href="javascript:void(0)" class="btn btn_ok">确认</a>
+                    <a href="javascript:void(0)" class="btn btn_cancel">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--tips-->
+<div class="tip">请填写内容！</div>
+<div class="tip2">请选择一个选项！</div>
+
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./js/screenAdapt.js"></script>
+    <script type="text/javascript">
+
+        $("#btnGet").click(function(){
+            $("#page2").fadeIn(300);
+            $("#page1").hide();
+        });
+
+        $("#btnKnow").click(function(){
+            $("#page3").fadeIn(300);
+            $("#page2").hide();
+        });
+
+        $(".clientType").click(function(){
+            $("#maskFillIn").show();
+        });
+            
+        $(".btn_close").click(function(){
+           $(".mask").hide();
+        });
+
+        $(".btn_cancel").click(function(){
+            $(".mask").hide();
+        });
+        
+        //报名者类型
+        $(".selectType li").on("click",function(){
+        	var o = $(this),
+        		b = $(".infoInput");
+        	
+        	o.addClass("active").siblings().removeClass("active");
+        	if(o.attr("data-type") == 'brand'){
+        		$(".brand").show();
+        	}else{
+        		$(".brand").hide();
+        	}
+        });
+    	
+    	function selectClientOk(){
+    		var data = $(".selectType .active input").val();
+    		
+    		if(data == undefined){
+    			$('.tip2').fadeIn(300).delay(1000).fadeOut(300);
+    		}else if(data == ''){
+    			
+    			$('.tip').fadeIn(300).delay(1000).fadeOut(300);
+    			$(".other").focus();
+    		}else{
+    			$(".clientType").addClass('active').html(data);
+	    		$("#clientType").val(data);
+	    		$(".mask").hide();
+    		}
+    		
+    	}
+    
+        $("#infoSubmit").click(function(){
+            $("#maskConfirm").show();
+            // 获取输入值
+            var ct = $("input[name=clientType]").val(),
+           company = $("input[name=company]").val(),
+           	   tel = $("input[name=tel]").val(),
+       contactName = $("input[name=contactName]").val(),
+       ticketCount = $("input[name=ticketCount]").val(),
+             brand = $("input[name=brand]").val();
+            
+			if(brand != ''){
+				$("#cBrand").parent().show();
+				$("#cBrand").html(brand);
+			}else{
+				$("#cBrand").parent().hide();
+			}
+            // 赋值给确认框
+            $("#cCompany").html(company);
+            $("#cTel").html(tel);
+            $("#cContactName").html(contactName);
+            $("#cTicketCount").html(ticketCount);
+        });
+
+    </script>
+</body>
+</html>

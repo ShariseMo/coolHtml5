@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>入场券——我的海报</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name = "format-detection" content = "telephone=no">
+</head>
+<style tyle="text/css">
+*{padding:0;margin:0 }
+body{overflow-x: hidden;max-width:100%;}
+.posterBox{position:relative;overflow-x: hidden;width:100%;}
+.posterBox>img{width: 100%;}
+.posterhead{position: absolute;width: 100%;left: 0;top: 0;}
+.posterhead .tit{position: absolute;width:62%;left:19%;top:73%;font-size:.4rem;z-index: 9999;color:#fff;}
+.posterhead img{max-width: 100%;}
+#bitchHead{position: absolute;text-align:center;width:14%;left:24%;top:265%;overflow:hidden;border-radius:100%;-webkit-border-radius:100%;z-index: 9999;border:transparent;border:5px solid #2154b6;}
+/*@media screen and (max-width: 376px)  {
+	#bitchHead{left:29%;}
+}*/
+#qrCode{position: absolute;text-align:center;width: 29%;left:17.5%;top:463%;z-index: 99;}
+#qrCode img,#bitchHead img{max-width: 101%;max-height:101%;}
+#bitchHead img{max-width: 101%;max-height:101%;}
+
+.posterPointBg{position:absolute;width:25%;right: 13%;top:66%;border:12px solid rgba(238,167,30,0.2);border-radius: 999px;-webkit-border-radius: 999px;}
+.posterPoint{position:relative;border:12px solid rgba(238,167,30,0.6);border-radius: 999px;-webkit-border-radius: 999px;}
+.posterPoint img{max-width: 100%;vertical-align: middle;}
+
+
+</style>
+<body>
+	<div class="posterBox">
+		<img src="img/poster.jpg" alt="">
+		<div class="posterhead">
+			<div class="tit">A推广公司E淘拍档</div>
+			<!--<img src="img/posterCodeBg.png"/>-->
+			<!--<div id="bitchHead"><img src="http://wx.qlogo.cn/mmopen/3GnwyfQQQlqwjlwGuxxBfiab56NfAUX93qE4Z37tEQ4m7qSMy6RQVejF2hVl3L1WRlIvIYn616vrVXWWicnXmZWpTNWcicESSsb/0" alt="" /></div>-->
+			<div id="qrCode"><img src="img/qr_code.png" alt=""></div>
+		</div>
+		<!--<div class="posterPointBg">
+			<div class="posterPoint"><img src="img/posterPoint.png"/></div>
+		</div>-->
+	</div>
+</body>
+<script src="js/screenAdapt.js"></script>
+<script>
+	function autoBox(){
+		//code定位
+		var p = document.getElementsByClassName('posterhead')[0];
+		p.style.height = p.clientWidth/5+ 'px';
+		//code大小
+		var qrCode = document.getElementById('qrCode');
+		qrCode.style.height = qrCode.clientWidth + 'px';
+		qrCode.style.lineHeight = qrCode.clientWidth + 'px';
+		var bitchHead = document.getElementById('bitchHead');
+		bitchHead.style.height = bitchHead.clientWidth + 'px';
+		bitchHead.style.lineHeight = bitchHead.clientWidth + 'px';
+	};
+	autoBox();
+</script>
+</html>
