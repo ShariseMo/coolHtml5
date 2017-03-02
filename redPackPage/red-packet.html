@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>抽红包，拼手气</title>    	
+	<script src="js/autoScrean.js"></script>
+    <link href="css/style.css" rel="stylesheet" /> 
+</head>
+
+<body class="redPacket">
+    <div class="bg_box">
+    	<div class="page_container">
+            <div class="redpack_box">
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./img/redPackage/e.png">
+                    <em id="mon1">￥0.25</em>
+                </span>
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./img/redPackage/d.png">
+                    <em id="mon2">￥0.25</em>
+                </span>
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./img/redPackage/s.png">
+                    <em id="mon3">￥0.25</em>
+                </span>
+                <div id="totalBox" class="hidden">
+                    <p>总金额:<span id="tMon">￥1.20</span></p>
+                    <!-- <p><a href="javascript:void(0)" class="btn_orange"><img src="./img/redPackage/btn.png"></a></p> -->
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <!-- 恭喜你 -->
+    <div class="mask hidden" id="openRed">
+        <div class="open_box">
+            <a href="javascript:void(0)" class="btn_close"><img src="./img/redPackage/close.png"></a>
+            <div class="txt_box">
+                <h3>恭喜你!</h3>
+                <h5>您共抽中 <span id="tMon2">1.00</span> 元红包，立即到EDS微信公众号领取红包吧！</h5>
+                <h5><img src="./img/redPackage/getMore.png"></h5>
+                <ol>
+                    <li>1.进入EDS公众号获得红包和个人推广海报；</li>
+                    <li>2.分享海报(朋友圈/私信)赢取更多摇红包机会；</li>
+                    <li>3.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
+                </ol>
+            </div>
+            <div class="btnOpen"></div>
+        </div>
+    </div>
+    
+    <!-- 无机会 -->
+    <div class="mask hidden" id="sorryDialog">
+        <div class="open_box back">
+            <a href="./supplier-list.html" class="btn_close"><img src="./img/redPackage/close.png"></a>
+            <div class="txt_box">
+                <h3>抱歉</h3>
+                <h5>您今天摇一摇抽红包的机会已用完。</h5>
+                <h5><img src="./img/redPackage/getMore.png"></h5>
+                <ol>
+                    <li>1.分享海报（朋友圈/私信）赢取更多摇红包机会；</li>
+                    <li>2.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
+                </ol>
+            </div>
+            <div class="btnOpen"></div>
+        </div>
+    </div>
+
+<script src="./js/jquery-2.1.0.min.js"></script>
+<script>
+    //红包翻转 
+    function openRedPack(obj){
+		$(obj).children('img').addClass("rotate").attr("src","./img/redPackage/open.png");
+        setTimeout(function(){
+            $(obj).children("em").fadeIn(300);
+        },300);
+        $(obj).attr("data-flag","1");
+        var count = 0;
+        $(".redpack_box > span").each(function(i){
+            if($(this).attr('data-flag')=="1"){ count++;}
+        });
+        if(count>2){
+            $("#totalBox").show();
+
+            setTimeout(function(){
+                $("#openRed").show();
+            },800)
+        }
+    }
+	//红包金额随机生成
+   	function getRandom(){
+        var t = 1 + Math.random()*0.2;
+        if(t > 1.20){
+            t = 1.20;
+        }else if(t < 1.00){
+            t = 1.00;
+        }
+        t = t.toFixed(2);
+       
+        var a = (Math.random()*t).toFixed(2);
+        var b = t - a ;
+        b = (Math.random()*b).toFixed(2);
+        var c = (t-a-b).toFixed(2);
+
+        $("#mon1").html("￥"+a);
+        $("#mon2").html("￥"+b);
+        $("#mon3").html("￥"+c);
+        $("#tMon").html("￥"+t);
+
+        $("#tMon2").html(t);
+    }
+    getRandom();
+
+    // 打开红包跳转
+    function getRed(){
+        // 跳转到EDS公众号
+        console.log("跳转到EDS公众号");
+    }
+
+
+    $(".btn_close").click(function(){
+        $(".mask").hide();
+    });
+        
+</script>
+</body>
+</html>
