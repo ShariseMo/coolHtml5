@@ -646,8 +646,10 @@ a{text-decoration: none;color: #4F5252;}
 	.txt_box{width:92%;margin:4%;padding-top:0.10rem;color:#ECCC94;}
 	.txt_box h3 ,.txt_box h5 {margin-top:0.25rem;text-align:center;}
 	.txt_box h5 img{width:45%;}
-	.txt_box ol{margin-top:0.05rem;font-size:0.28rem;}
-	.btnOpen{position:absolute;width:2rem;height:2rem;bottom:1.8rem;left:2rem;}
+	.txt_box ol{margin-top:0.05rem;font-size:0.265rem;}
+	.btnOpen{position:absolute;width:2rem;height:2.3rem;bottom:0.6rem;left:2rem;text-align:center;}
+	.btnOpen img{width:1.6rem;margin:0.2rem 0.2rem -0.1rem;}
+	.btnOpen span{font-size:0.2rem;color:#DB5443;}
 
 	.back .txt_box h5{margin-top:0.35rem;}
 

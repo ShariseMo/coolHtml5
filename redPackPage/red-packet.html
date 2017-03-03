@@ -47,7 +47,10 @@
                     <li>3.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
                 </ol>
             </div>
-            <div class="btnOpen"></div>
+            <div class="btnOpen">
+                <img src="./img/redPackage/qrcode.jpg">
+                <span>长按扫一扫 拿红包</span>
+            </div>
         </div>
     </div>
     
@@ -64,11 +67,15 @@
                     <li>2.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
                 </ol>
             </div>
-            <div class="btnOpen"></div>
+            <div class="btnOpen">
+                <img src="./img/redPackage/qrcode.jpg">
+                <span>长按扫一扫 拿红包</span>
+            </div>
         </div>
     </div>
 
 <script src="./js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="./js/qrcode.min.js"></script>
 <script>
     //红包翻转 
     function openRedPack(obj){
@@ -123,6 +130,15 @@
     $(".btn_close").click(function(){
         $(".mask").hide();
     });
+
+
+    // qrcode
+    // var qrcode1 = new QRCode("qrcode1",{
+    //     text: '二维码',
+    //     width:90,
+    //     height:90,
+    //     correctLevel: QRCode.CorrectLevel.H
+    // });
         
 </script>
 </body>
