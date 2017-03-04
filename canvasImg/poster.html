@@ -24,7 +24,7 @@
             #poster1{min-height:430px;}
     </style>
 </head>
-<body>
+<body onload="draw()">
     <img src="" id="successImg">
     <img src="./poster.jpg" width="100%"  id="poster1" class="hidden">
     <img src="./icon_man.png" width="100%" id="qrcode" class="hidden">
@@ -45,7 +45,7 @@
     var img2=document.getElementById("qrcode");
     img1.crossOrigin = "*" ;
     img2.crossOrigin = "*" ;
-    img1.onload = function() {
+    function draw() {
         ctx.drawImage(img1,0,30,winW,posterH);
         ctx.drawImage(img2,marginL,marginT,qrcodeW,qrcodeW);
 
