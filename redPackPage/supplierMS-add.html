@@ -5,6 +5,9 @@
 	<meta name="format-detection" content="telephone=no" />
 	<title>EDS供货商--后台-新增</title>    	
 	<link href="css/style.css" rel="stylesheet" /> 
+	<style type="text/css">
+		.ms_list .form_list .drag_box img{margin-top:5px;}
+	</style>
 </head>
 
 <body>
@@ -53,15 +56,15 @@
 						<label class="tips"> 请选择上传文件，可上传多个图片，限制支持png/gif/jpg，每个10.00MB以内。</label>
 						<div class="img_box">
 							<label class="upload_container" for="imgDoorInput01">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgDoorInput01" onchange="previewImg(this)">
 							</label>
 							<label class="upload_container" for="imgDoorInput02">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgDoorInput02" onchange="previewImg(this)">
 							</label>
 							<label class="upload_container" for="imgDoorInput03">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgDoorInput03" onchange="previewImg(this)">
 							</label>
 						</div>
@@ -73,15 +76,15 @@
 						<label class="tips"> 请选择上传文件，可上传多个图片，限制支持png/gif/jpg，每个10.00MB以内。</label>
 						<div class="img_box">
 							<label class="upload_container" for="imgRoomInput01">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgRoomInput01" onchange="previewImg(this)">
 							</label>
 							<label class="upload_container" for="imgRoomInput02">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgRoomInput02" onchange="previewImg(this)">
 							</label>
 							<label class="upload_container" for="imgRoomInput03">
-								<img src="" class="upload_img hidden">
+								<a href="javascript:void(0)" class="btn_del">x</a>
 								<input type="file" name="" class="hidden" id="imgRoomInput03" onchange="previewImg(this)">
 							</label>
 						</div>
@@ -119,11 +122,16 @@
 		function previewImg(obj){
 			var objUrl = getObjectURL(obj.files[0]);
 			if(objUrl){
-				$(obj).prev("img").removeClass("hidden").attr("src",objUrl);
+				$(obj).parent("label").prepend("<img class='upload_img hidden' src=''/>");
+				$(obj).siblings("img").removeClass("hidden").attr("src",objUrl);
 				$(obj).parent("label").removeClass("upload_container").addClass("upload_container2");
 			}
 		}
-
+		$(".btn_del").click(function(){
+			$(this).siblings("img").remove();
+			$(this).siblings("input").val("");
+			$(this).parent("label").removeClass("upload_container2").addClass("upload_container");
+		});
 
 	    function getObjectURL(file) {
 		    var url = null;

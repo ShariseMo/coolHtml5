@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>poster</title>
+    <script type="text/javascript" src="./js/jquery-2.1.0.min.js"></script>
+    <style type="text/css">
+            * { margin: 0;padding: 0;}
+            html,body{ height:100%; width:100%; background:#000; overflow:hidden;}  
+            canvas{ display:block; width:100%;}  
+            .hidden{display: none}
+            #poster1{min-height:430px;}
+    </style>
+</head>
+<body onload="draw()">
+    <img src="" id="successImg">
+    <img src="./img/poster.jpg" width="100%"  id="poster1" class="hidden">
+    <img src="./img/icon_man.png" width="100%" id="qrcode" class="hidden">
+    <canvas id="myCanvas" width="360" height="500" class="hidden"></canvas>
+
+    <script type="text/javascript">
+    var c=document.getElementById("myCanvas");
+    var winW = window.innerWidth,
+        posterH = 1.2*winW,
+        winH = window.innerHeight,
+        qrcodeW = 0.3*winW,
+        marginL = 0.35*winW,
+        marginT = 0.9*winW;
+    c.width = winW;
+    c.height = winH;
+    var ctx=c.getContext("2d");
+    var img1=document.getElementById("poster1");
+    var img2=document.getElementById("qrcode");
+    img1.crossOrigin = "*" ;
+    img2.crossOrigin = "*" ;
+
+    function draw() {
+        ctx.drawImage(img1,0,30,winW,posterH);
+        ctx.drawImage(img2,marginL,marginT,qrcodeW,qrcodeW);
+        var base64 = c.toDataURL('images/png');//注意是canvas元素才有 toDataURL 方法  
+        $('#successImg').attr("src",base64); 
+    };
+    
+    </script>
+
+
+</body>
+</html>

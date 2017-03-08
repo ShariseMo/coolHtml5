@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>EDS-无穷的可能性</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .poster_bg{position:absolute;width:100%;height:100%;background:#000;}
+        .img_bg{position:relative;margin-top:1.5rem;}
+        .poster_bg img{width:100%;}
+
+        /*qrcode*/
+        #qrcode{position:absolute;box-sizing:border-box;width:2rem;height:2rem;top:6.1rem;left:2.8rem;background:#fff;border-radius:0.1rem;padding:0.1rem;}
+        #qrcode img{
+            width:1.8rem;
+            height:1.8rem;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="poster_bg">
+        <div class="img_bg">
+            <img src="./img/poster.jpg">
+            <div id="qrcode"></div>
+        </div>
+    </div>
+    
+    <script src="js/autoScrean.js"></script>
+    <script src="./js/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="./js/qrcode.min.js"></script>
+    <script type="text/javascript">
+        var qrCodeTxt = "https://www.baidu.com/";
+        var qrcode = new QRCode('qrcode',{
+            text: qrCodeTxt,
+            width:200,
+            height:200,
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>

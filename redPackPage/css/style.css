@@ -164,7 +164,7 @@ a{text-decoration: none;color: #4F5252;}
 }
 .ms_list .form_list select{margin-left:-4px;}
 .img_box{margin-top:10px;}
-.upload_container,.upload_container2{position:relative;display:inline-block;width:110px;height:110px;border:1px solid #ccc;text-align:center;}
+.upload_container,.upload_container2{position:relative;display:inline-block;width:110px;height:110px;border:1px solid #ccc;text-align:center;vertical-align:middle;}
 .upload_container:before{
 	content:"+";
 	display:block;
@@ -183,8 +183,13 @@ a{text-decoration: none;color: #4F5252;}
 	left:22px;
 	top:64px;
 }
-.upload_img{position:absolute;width:110px;height:110px;left:0;vertical-align:middle;}
+.upload_img{position:absolute;width:110px;height:110px;left:0;margin-top:5px;border:0;vertical-align:middle;}
 .tips{color:red;border:0;font-size:14px;}
+
+.btn_del{display:none;position:absolute;top:2px;right:2px;}
+.upload_container2:hover .btn_del{display:inline-block;width:21px;height:21px;border-radius:21px;background:#ccc;z-index:99;text-align:center;font-size:15px;}
+
+
 .form_list .machine_info{display:inline-block;margin-top: 0;width:auto;}
 .form_list .machine_info td{padding:5px;border:1px solid #ccc;}
 .form_list .machine_info td input{width:94%;min-height:30px;text-align:center;margin:0;padding:0 3%;border:0;outline:none;}
@@ -300,6 +305,12 @@ a{text-decoration: none;color: #4F5252;}
 	text-align: center;
 	padding: 0.05rem;
 }
+.detial .contents .circle >div{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	background: #D8ECED;
+}
 .detial .contents .top_circle {
 	background:linear-gradient(-120deg ,#A89007 ,#5E480B,#DFC21F,#B59355);
 }
@@ -311,6 +322,7 @@ a{text-decoration: none;color: #4F5252;}
 	width: 2rem;
 	height: 2rem;
 	border-radius: 100%;
+	background:#D8ECED;
 }
 .detial .contents .margins {
 	color: #4F5252;
@@ -339,8 +351,11 @@ a{text-decoration: none;color: #4F5252;}
 .detial .contents .royesi table td .word_sm{
 	font-size: 0.25rem;
 }
+.detial .contents .royesi table td .word_sm a{
+	color:#5d9bef;
+}
 .detial .contents .royesi .td_right{
-	width: 1.6rem;
+	width: 1.8rem;
 	margin: 0.08rem 0;
 	padding: 0 .1rem;
 	border-right: 0.01rem solid #379FA2;
@@ -387,14 +402,21 @@ a{text-decoration: none;color: #4F5252;}
 	border-radius: 0.25rem;
 	background:linear-gradient(-150deg ,#E4C50B ,#8A6522,#E4C50B,#E4C50B,#8A6522);
 }
+.detial .contents .photo_frame  >div{
+	width: 100%;
+	height: 100%;
+	border-radius: 0.15rem;
+	background: #D8ECED;
+}
 .detial .contents .photo_frame img {
 	max-width: 6rem;	
 	border-radius: 0.14rem;
+	background:#D8ECED;
 	display: table-cell;
 }
 .detial .contents .click_enlarge {
 	color: #379FA2;
-	font-size: 0.16rem;
+	font-size: 0.2rem;
 	margin-top: 0.2rem;
 	cursor: pointer;
 }
