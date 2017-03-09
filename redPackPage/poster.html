@@ -42,21 +42,86 @@
             qrcodeW = 0.24*winW,
             marginL = 0.38*winW,
             marginT = 0.92*winW;
-        c.width = winW;
-        c.height = winH;
+        /*c.width = winW;
+        c.height = winH;*/
         var ctx=c.getContext("2d");
+        var getPixelRatio = function(context) {
+            var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+
+            return (window.devicePixelRatio || 1) / backingStore;
+        };
+        var ratio = getPixelRatio(ctx);
+        if(ratio >= 3){
+            ratio = ratio/3;
+        }
+
+        c.width = winW*ratio;
+        c.height = winH*ratio;
+
+    
         var img1=document.getElementById("poster1");   
         var img2= document.getElementById("qrcode").lastChild;  //获取生成的二维码
 
-        img2.onload = function() {     //等到图片加载完毕再画
-            ctx.drawImage(img1,0,30,winW,posterH);
+        img1.onload = function() {     //等到图片加载完毕再画
+            ctx.drawImage(img1,0,30*ratio,winW*ratio,posterH*ratio);
             ctx.fillStyle="#fff";
-            ctx.fillRect(marginL-5,marginT-5,qrcodeW+10,qrcodeW+10);
-            ctx.drawImage(img2,marginL,marginT,qrcodeW,qrcodeW);
+            ctx.fillRect((marginL-5)*ratio,(marginT-5)*ratio,(qrcodeW+10)*ratio,(qrcodeW+10)*ratio);
+            ctx.drawImage(img2,marginL*ratio,marginT*ratio,qrcodeW*ratio,qrcodeW*ratio);
             var base64 = c.toDataURL('images/png');//注意是canvas元素才有 toDataURL 方法  
             $('#successImg').attr("src",base64); 
         };
     }
+    
+//        function draw(){
+//         var c=document.getElementById("myCanvas");
+//         var winW = window.innerWidth,
+//                 posterH = 1.2*winW,
+//                 winH = window.innerHeight,
+//                 qrcodeW = 0.24*winW,
+//                 marginL = 0.38*winW,
+//                 marginT = 0.92*winW;
+// //        c.width = winW;
+// //        c.height = winH;
+//         var ctx=c.getContext("2d");
+
+//         var getPixelRatio = function(context) {
+//             var backingStore = context.backingStorePixelRatio ||
+//                     context.webkitBackingStorePixelRatio ||
+//                     context.mozBackingStorePixelRatio ||
+//                     context.msBackingStorePixelRatio ||
+//                     context.oBackingStorePixelRatio ||
+//                     context.backingStorePixelRatio || 1;
+
+//             return (window.devicePixelRatio || 1) / backingStore;
+//         };
+
+//         var ratio = getPixelRatio(ctx);
+//         if(ratio>=3){
+//             ratio = ratio/1.5;
+//         }
+
+// //        var ratio =1;
+//         c.width = winW*ratio;
+//         c.height = winH*ratio;
+
+
+//         var img1=document.getElementById("poster1");
+//         var img2= document.getElementById("qrcode").lastChild;  //获取生成的二维码
+
+//         img2.onload = function() {     //等到图片加载完毕再画
+//             ctx.drawImage(img1,0,30*ratio,winW*ratio,posterH*ratio);
+//             ctx.fillStyle="#fff";
+//             ctx.fillRect((marginL-5)*ratio,(marginT-5)*ratio,(qrcodeW+10)*ratio,(qrcodeW+10)*ratio);
+//             ctx.drawImage(img2,marginL*ratio,marginT*ratio,qrcodeW*ratio,qrcodeW*ratio);
+//             var base64 = c.toDataURL('images/png');//注意是canvas元素才有 toDataURL 方法
+//             $('#successImg').attr("src",base64);
+//         };
+//     }
     
     
     
