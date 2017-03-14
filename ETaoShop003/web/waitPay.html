@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>待付款的订单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pshop.css"/>	
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box waitPay_box">
+			<div class="orderAddr flex" onclick="window.location.href='selectAddr2.html'">
+				<div class="item">
+					<p class="alignL"><img src="img/u5858.png" />&nbsp;收货人：小肖&nbsp;&nbsp;&nbsp;&nbsp;13246041802</p>
+					<p class="alignL addr">收货地址：广东省中山市古镇华艺工业园1号楼8楼</p>
+				</div>
+				<div class="item"><span class="mui-icon mui-icon-arrowright floatR"></span></div>
+			</div>		
+			<div class="orderDetail">
+				<div class="shopName flex">店铺：Nicoshop</div>
+				<div class="proDetail flex">
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"></div>
+					<div class="item proName">景瑞现代风格台灯9219台灯</div>
+					<div class="item priceNum">
+						<p class="alignR fontOrange1">￥680.00</p>
+						<p class="alignR fontgray">x2</p>
+					</div>
+				</div>
+				
+				<div class="transMoney flex">
+					<div class="item ">运费</div>
+					<div class="item fontgray alignR">￥0.00</div>
+				</div>
+				<div class="heji flex" style="margin-bottom:10px;">
+					<div class="item">合计</div>
+					<div class="item fontOrange2 alignR">￥680.00</div>
+				</div>
+			</div>
+			
+			<!--短信通知收件人-->
+			<div class="msg flex" >
+				<span class="item">短信通知收件人</span>
+				<span class="item" style="text-align:right;display:inline-block;">
+					<div class="mui-switch mui-switch-mini mui-active" style="vertical-align:middle;display:inline-block;"> 
+					    <div class="mui-switch-handle"></div>
+					</div>
+				</span>	
+			</div>
+				
+			<!--需付-->
+			<div class="totalAmount">
+				<p>￥680.00+￥0.00运费</p>
+				<p class="fontOrange1">需付：￥680.00</p>
+			</div>
+			<div class="footer" style="padding-bottom:15px">
+				<div class="waitPaySubmit">
+					<a class="btnOrange">提交订单</a>
+					<span>合计：￥680.00</span>
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

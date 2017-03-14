@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>店铺名称</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pshop.css"/>	
+	</head>
+	<body>
+		<div class="box">
+			<div class="myRecord">
+				<span class="flaotL"><span class="imgWrap"><img src="img/u2248.png"  width="26px"/></span>&nbsp;Nicoshop</span>
+				<span style="float:right;"><img src="img/u3166.png" width="20px">&nbsp;收藏&nbsp;|&nbsp;我的记录</span>
+			</div>
+			<div><img src="img/u3172.png" width="100%"/></div>
+			<dl class="styleBox">
+				<dd class="fontOrange2">最新商品</dd>
+				<dd>欧美风格</dd>
+				<dd>简中</dd>
+				<dd style="text-align:right;width:150px;"><img src="img/u3191.png" style="padding:0;margin-top:-2px;" id="moreStyle"></dd>
+			</dl>
+			<div class="proBox">
+				<div class="proItem flex">
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"/></div>
+					<div class="item">
+						<p class="alignL proName">景瑞现代风格台灯9219台灯</p>
+						<p class="fontOrange1 alignL">￥680.00</p>
+					</div>
+					<div class="item shopCartWrap"><img src="img/u3210.png" width="100%"></div>
+				</div>
+				<div class="proItem flex">
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"/></div>
+					<div class="item">
+						<p class="alignL proName">景瑞现代风格台灯9219台灯</p>
+						<p class="fontOrange1 alignL">￥680.00</p>
+					</div>
+					<div class="item shopCartWrap"><img src="img/u3210.png" width="100%"></div>
+				</div>
+				<div class="proItem flex">
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"/></div>
+					<div class="item">
+						<p class="alignL proName">景瑞现代风格台灯9219台灯</p>
+						<p class="fontOrange1 alignL">￥680.00</p>
+					</div>
+					<div class="item shopCartWrap"><img src="img/u3210.png" width="100%"></div>
+				</div>
+			</div>
+			<!--链接-->
+			<div class="links">
+				<p>
+					<a href="index.html">商城首页</a>&nbsp;&nbsp;
+					<a href="shoppingList.html">购物记录</a>
+				</p>
+			</div>
+			
+			<!--侧滑菜单-->
+		<div class="slideMenu hidden">
+			<ul>
+				<li><a href="#">最新产品</a></li>
+				<li><a href="#">欧美风格</a></li>
+				<li><a href="#">简中</a></li>
+				<li><a href="#">田园</a></li>
+				<li><a href="#">小美式风格</a></li>
+				<li><a href="#">新中式</a></li>
+			</ul>
+		</div>
+		</div>
+		
+		<!--悬浮购物车-->
+		<span class="myShopCart"><a href="addToCart.html"><img src="img/u4385.png"/></a></span>
+		
+		
+		
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.styleBox dd').click(function(){
+				$(this).addClass('fontOrange2').siblings().removeClass('fontOrange2');
+			});
+			//侧边菜单栏
+			$("#moreStyle").click(function(){
+				$('body').css('overflow','hidden');
+				$('.slideMenu').removeClass('hidden');
+				
+			});
+			$('.slideMenu').click(function(){
+				$('body').css('overflow','auto');
+				$(this).addClass('hidden');
+				
+			});
+			
+			//点击商品进入详情页
+			$('.proItem').click(function(){
+				window.location.href="detail.html";
+			});
+			
+			//点击加入购物车
+			$('.shopCartWrap').click(function(){
+				 mui.toast('已成功加入购物车！');
+				 return false;
+			});
+		</script>
+	</body>
+</html>

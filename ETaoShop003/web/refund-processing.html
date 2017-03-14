@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>退款处理中</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pshop.css"/>	
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="rowTop">
+				<img src="img/u5967.png" width="30px">&nbsp;等待商家处理退款申请
+			</div>
+			<div class="refundProceTip">
+				<p class="alignL">如商家同意：申请将达成并退款给你</p>
+				<p class="alignL">如商家拒绝：你需要修改退款申请会真情维权</p>
+			</div>
+			<div class="refundProceTip2">若商家在&nbsp;<span class="fontOrange2">06天23时59分59秒</span>&nbsp;内未处理，则申请达成并退款给您</div>
+			<div class="list">
+				<ul>
+					<li>
+						<span class="floatL">退款编号：</span>
+						<span class="floatR">W124631562462114</span>
+					</li>
+					<li>
+						<span class="floatL">申请时间：</span>
+						<span class="floatR">2016-05-28  12:23:49</span>
+					</li>
+					<li>
+						<span class="floatL">退款原因：</span>
+						<span class="floatR">多买/买错/不想要</span>
+					</li>
+					<li>
+						<span class="floatL">处理方式：</span>
+						<span class="floatR">仅退款</span>
+					</li>
+					<li>
+						<span class="floatL">货物状态：</span>
+						<span class="floatR">未收到货</span>
+					</li>
+					<li>
+						<span class="floatL">退款金额：</span>
+						<span class="floatR fontOrange2">￥680.00</span>
+					</li>
+				</ul>
+			</div>
+			<div class="viewBox"><a href="negoRecord-process.html">查看完整协商记录</a></div>
+			<div class="alignCen">
+				<a class="btnGreen3">订单详情</a>
+				<a class="btnGreen4" id="cancelRefund">撤销退款申请</a>
+			</div>
+		</div>
+	
+	<script type="text/javascript">
+		document.getElementById("cancelRefund").addEventListener('tap', function(){
+		    var btnArray = ['关闭退款', '取消'];
+		    mui.confirm('如果您主动关闭正在处理的退款后，您无法再次发起退款申请，请务必谨慎操作。', '关闭退款申请', btnArray, function(e){
+//		        if (e.index == 1){
+//		            info.innerText = '你刚确认MUI是个好框架';
+//		        }else{
+//		            info.innerText = 'MUI没有得到你的认可，继续加油'
+//		        }
+		    })
+		});
+	</script>
+		
+	</body>
+</html>

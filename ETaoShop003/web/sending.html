@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>卖家已发货</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pshop.css"/>	
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="box">
+			<div class="orderTop flex">
+				<div class="item imgWrap alignR">
+					<img src="img/u5004.png" />
+				</div>
+				<div class="item">
+					<p class="alignL">订单状态：卖家已发货</p>
+					<p class="alignL fontgray">还剩7天自动确认</p>
+				</div>
+			</div>
+			<div class="orderAddr">
+				<p><span class="floatL"><img src="img/u5858.png" />&nbsp;收货人：小肖</span><span class="floatR">13246041802</span></p>
+				<p class="alignL addr">收货地址：广东省中山市古镇华艺工业园1号楼8楼</p>
+			</div>		
+			<div class="orderDetail">
+				<div class="shopName flex">店铺：Nicoshop</div>
+				<div class="proDetail flex">
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"></div>
+					<div class="item proName">景瑞现代风格台灯9219台灯</div>
+					<div class="item priceNum">
+						<p class="alignR fontOrange1">￥680.00</p>
+						<p class="alignR fontgray">x2</p>
+						<p class="alignR"><a class="btnOrange1" style="font-size:14px">申请退款</a></p>
+					</div>
+				</div>
+				<div class="transMoney flex">
+					<div class="item ">运费</div>
+					<div class="item fontgray alignR">￥0.00</div>
+				</div>
+				<div class="heji flex">
+					<div class="item ">合计</div>
+					<div class="item fontOrange2 alignR">￥680.00</div>
+				</div>
+				<a href="linkSeller.html"><div class="linkSeller"><img src="img/u4059.png" width="30px">&nbsp;联系店家</div></a>
+			</div>
+			<div class="totalAmount">
+				<p>￥680.00+￥0.00运费</p>
+				<p class="fontOrange1">需付：￥680.00</p>
+			</div>
+			<!--订单号-->
+			<div class="payDe">
+				<p>订单号：EDS20160528135925962483216</p>
+				<p class="fontgray ">2016-05-28 12:23</p>
+				<p class="fontgray ">完成付款</p>
+			</div>
+			<!--商城首页，购物记录链接-->
+			<div class="links">
+				<p>
+					<a href="index.html">商城首页</a>&nbsp;&nbsp;
+					<a href="shoppingList.html">购物记录</a>
+				</p>
+			</div>
+			<div class="footer" style="padding-bottom: 15px;">
+				<a class="btnGreen1 floatR" href="orderShare.html">我要晒单</a>
+				<a class="btnGreen2 floatR" id="confirmReceive">确认收货</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		document.getElementById("confirmReceive").addEventListener('tap', function(){
+		    var btnArray = ['关闭退款', '取消'];
+		    mui.confirm('如果您主动关闭正在处理的退款后，您无法再次发起退款申请，请务必谨慎操作。', '关闭退款申请', btnArray, function(e){
+//		        if (e.index == 1){
+//		            info.innerText = '你刚确认MUI是个好框架';
+//		        }else{
+//		            info.innerText = 'MUI没有得到你的认可，继续加油'
+//		        }
+		    })
+		});
+		</script>
+		
+		
+	</body>
+</html>

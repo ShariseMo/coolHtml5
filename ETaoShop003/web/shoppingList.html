@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>购物记录</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/pshop.css" />
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="cartRecord">
+				<span class="tab cart active">购物车</span>
+				<span class="tab record">购物记录</span>
+			</div>
+			<!-- 购物车 -->
+			<div id="shoppingCart" class="tab_box ">
+				<div class="shopName flex">
+					<div class="item"><span>店铺：Nicoshop</span></div>
+					<div class="">
+						<a href="#" class="edit">编辑</a>
+					</div>
+				</div>
+				<div class="proDetail flex">
+					<div class="item selectM">
+						<div class="mui-input-row mui-checkbox mui-left selectIcon">
+							<label></label>
+							<input name="checkbox1" value="" type="checkbox" checked>
+						</div>
+					</div>
+					<div class="item imgWrap"><img src="img/u1720.png" width="100%"></div>
+					<div class="item proName">景瑞现代风格台灯9219台灯</div>
+					<div class="item priceNum">
+						<p class="alignR fontOrange1">￥680.00</p>
+						<p class="alignR fontgray">x2</p>
+					</div>
+				</div>
+
+				<!--购物车合计、结算-->
+				<div class="cartSum">
+					<div class="mui-input-row mui-checkbox mui-left selectIcon">
+						<label></label>
+						<input name="checkbox1" value="" type="checkbox" checked>
+					</div>
+					<span>全选</span>
+					<input type="button" name="" value="结算" class="totalBtn alignR">
+					<span class="totalCount">合计：7160元</span>
+				</div>
+				<div class="editCart hidden">
+					<div class="mui-input-row mui-checkbox mui-left selectIcon">
+						<label></label>
+						<input name="checkbox1" value="" type="checkbox">
+					</div>
+					<span>全选</span>
+					<button class="btnRed delOrder" disabled>删除</button>
+				</div>
+			</div>
+
+			<!-- 购物记录(无订单) -->
+			<div id="noShopRecord" class="hidden tab_box">
+				<div class="noRecordBox">
+					<div class="alignCen">居然还没有订单</div>
+					<p>好东西，手慢无</p>
+					<p><input type="button" name="" value="去逛街" class="btnOrangeBig" onclick="window.location.href='index.html'"></p>
+					<!--<p class="moreOrder"><input type="button" name="" value="查看更早的订单" class="btn_white_lg"></p>-->
+				</div>
+			</div>
+
+			<!-- 购物记录（有订单） -->
+			<div id="shoppingRecord" class="hidden tab_box">
+				<!-- 订单列表 -->
+				<div class="recordList">
+					<div class="recordItem"  style="border-top:0;">
+						<div class="flex">
+							<div class="item">
+								<div class="shopName">店铺：Nicoshop</div>
+								<p class="alignL">订单编号：EDS2016051304847188358</p>
+							</div>
+							<div class="item alignR fontOrange2" style="min-width:100px;">等待买家付款</div>
+							
+						</div>
+						<div class="proDetail flex">
+							<div class="item imgWrap"><img src="img/u1720.png" width="100%"></div>
+							<div class="item proName">景瑞现代风格台灯9219台灯</div>
+							<div class="item priceNum">
+								<p class="alignR fontOrange1">￥680.00</p>
+								<p class="alignR fontgray">x2</p>
+							</div>
+						</div>
+						<div class="heji flex">
+							<div class="item ">合计:<span class="fontOrange2">￥680.00</span></div>
+							<div class="item alignR">
+								<a class="btnCancel btn">取消</a>
+								<a class="btnPay btnOrange">付款</a>
+							</div>
+						</div>
+					</div>
+					<div class="recordItem">
+						<div class="flex">
+							<div class="item">
+								<div class="shopName">店铺：Nicoshop</div>
+								<p class="alignL">订单编号：EDS2016051304847188358</p>
+							</div>
+							<div class="item alignR fontOrange2" style="min-width:100px;">买家已付款</div>
+						</div>
+						<div class="proDetail flex">
+							<div class="item imgWrap"><img src="img/u1720.png" width="100%"></div>
+							<div class="item proName">景瑞现代风格台灯9219台灯</div>
+							<div class="item priceNum">
+								<p class="alignR fontOrange1">￥680.00</p>
+								<p class="alignR fontgray">x2</p>
+							</div>
+						</div>
+						<div class="heji flex"><div class="item ">合计:<span class="fontOrange2">￥680.00</span></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$('.tab').click(function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+
+			$('.cart').click(function() {
+				$('#shoppingCart').css('display', 'block').siblings('.tab_box').css('display', 'none');
+			});
+			$('.record').click(function() {
+				var orderNum = 1;
+				if(orderNum == 0) {
+					$('#noShopRecord').css('display', 'block').siblings('.tab_box').css('display', 'none');
+				} else
+					$('#shoppingRecord').css('display', 'block').siblings('.tab_box').css('display', 'none');
+			});
+
+			// 编辑
+			$('.edit').toggle(function() {
+				$('.edit').html('完成');
+				$('.cartSum').css('display', 'none');
+				$('.editCart').css('display', 'inline-block');
+			}, function() {
+				$('.edit').html('编辑');
+				$('.editCart').css('display', 'none');
+				$('.cartSum').css('display', 'inline-block');
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加入购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pshop.css"/>	
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			html,body,.box{height:100%;width:100%;}
+		</style>
+	</head>
+	<body>
+		<div class="box addrBg">
+			<div  class="addToCartBox">
+				<div class="flex">
+					<div class="item imgWrap"><img src="img/u3501.png" width="100%" style="padding:5px 0;border:1px solid #dedede;"></div>
+					<div class="item" style="max-width:68%;">
+						<p class="proName">古窑●玫瑰现代风格台灯30238-7...</p>
+						<p class="alignL fontOrange1">￥3558.00</p>
+					</div>
+					<div class="item" style="text-align:right;position:absolute;top:5px;right:0;width:9%;"><img src="img/u2448.png" width="100%" style="border:1px solid #aaa;border-radius:20px;"></div>
+				</div>
+				<div class="flex">
+					<div class="item">
+						<p class="alignL">购买数量：</p>
+						<p class="fontgreen alignL">库存：<span class="stockCount">300</span>件</p>
+					</div>
+					<div class="item alignR" style="padding-top:0;">
+						<span class="reduceOne" style="margin-right:-5px;">-</span>
+						<span class="currentNum">1</span>
+						<span class="addOne" style="margin-left:-5px;">+</span>
+					</div>
+					
+				</div>
+				<p><a class="btnOrangeLong" href="selectAddr.html">下一步</a></p>
+			</div>		
+				
+		</div>
+		
+		<script src="js/region_select.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			new PCAS('province','city','district','广东省','','');
+		</script>
+	</body>
+</html>
