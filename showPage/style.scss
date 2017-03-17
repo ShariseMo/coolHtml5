@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+*{ margin:0; padding:0;}
+html,body{ height:100%; overflow: hidden;}
+li{list-style-type:none;text-align:left;}
+
+.clear{clear:both;}
+.container{
+    min-width:1000px;
+    height:100%; 
+    transition: 500ms;
+    transition-timing-function: ease-in;
+}
+
+.page{
+    box-sizing: border-box;
+    padding:20px;
+    height:100%; 
+    // background:#F6F6F6;
+    background:#ddd;
+    .inner{
+        width:70%;
+        height:600px;
+        margin:150px auto;
+        border:1px solid #ccc;  
+        text-align:center;
+        .avatar_box{
+            width:150px;
+            height:150px;
+            margin:10px auto;
+            border-radius:100%;
+            background:#fff;
+            >img{width:100%;border-radius:100%;}
+        }   
+        >h3{padding:10px;border-bottom:3px dashed #ccc;}
+        >p{padding:10px;}
+    }
+}
+
+// 专业技能
+.skill_box{
+    margin:10px 95px;
+    .item{
+        position:relative;
+        width:200px;
+        float:left;
+        >img{width:80%;}
+        .description{
+            width:80%;
+            margin:10px auto;
+            background:#ccc;
+            border-radius:5px;
+            font-size:14px;
+            color:#fff;
+            >li{text-align:left;}
+        }        
+    }
+}
+
+
+.banner{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    background:rgba(0,0,0,0.6);
+    z-index:99;
+    color:#fff;
+}
+input{
+    display:none;
+    visibility: hidden;
+    width:0;
+    height:0;
+}
+.nav{
+    position: fixed;
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    right:20px;
+    top:45%;
+    background-color: #5561ff;
+    font-size: 14px;
+    padding-top: 13px;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    color:#fff;
+    z-index: 5;
+}
+.nav-base{margin-top: -120px; background-color: #9999dd;}
+.nav-skills{margin-top: -40px;background-color: rgb(122,211,123);}
+.nav-experience{ margin-top: 40px; background-color: rgb(123,123,123);}
+.nav-my{ margin-top:120px; background-color: rgb(111,222,33);}
+.slide-base:checked~.nav-base{ background-color: white; color:#9999dd;}
+.slide-skills:checked~.nav-skills{background-color: white;color:rgb(122,211,123);}
+.slide-experience:checked~.nav-experience{ background-color: white; color:rgb(123,123,123);}
+.slide-my:checked~.nav-my{background-color: white; color:rgb(111,222,33);}
+
+.slide-base:checked~.container{ transform: translateY(0);}
+
+.slide-skills:checked~.container{ transform: translateY(-100%);}
+.slide-experience:checked~.container{ transform: translateY(-200%);}
+.slide-my:checked~.container{transform: translateY(-300%);}
