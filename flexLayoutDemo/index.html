@@ -1,0 +1,115 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>灯饰</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="format-detection" content="telphone=no,email=no" />
+	<meta name="HandheldFriendly" content="true" />
+	<!-- <style>
+		*{
+			margin: 0;
+			padding: 0
+		}
+		.main{
+			padding: 0 3%;
+		}
+		.section{
+			border: 1px solid #000;
+			padding: 5%;
+		}
+		.flex{
+			display: flex;
+			-moz-display:flex;
+			justify-content:space-around;
+			align-items:center;
+		}
+		.item{
+			flex:1 1 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+
+		<div class="section">
+			<div class="top flex">
+				<div class="item">
+					<p class="shop-name">店名:Nicoshop</p>
+					<p class="order-id">xxxxxxxxxxxxxxxxxxxxxxx</p>
+				</div>
+				<p class="is-pay item">买家已付款</p>
+			</div>
+
+			<div class="middle flex">
+				<div class="img-wrap item" style="width:30%">
+					<img src="u1720.png" width="100%" alt="Loading">
+				</div>
+				<p class="good-name item">精锐风格现代台灯9527台灯</p>
+				<div class="price-num item">
+					<p class="price" style="text-align:center">￥66.00</p>
+					<p class="num" style="text-align:right">x2</p>
+				</div>
+			</div>
+
+			<div class="bottom flex">
+				<div class="all-price-wrap item">
+					<p class="all-price">合计：<span>￥680.00</span></p>
+				</div>
+				<div class="btns item">
+					<a href="javascript:console.log('取消')">取消</a>
+					<a href="javascript:console.log('付款')">付款</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	 -->
+	<style type="text/css">
+		body{margin:0;padding:0;}
+		/*.orderDetail{width:100%;}*/
+		.flex{
+			/*width:100%;*/
+			display:-webkit-flex;
+			display:flex;
+			justify-content:space-around;
+			align-items:center;
+		}
+		.flex .item{
+			-moz-flex:1 1 auto;
+			-webkit-flex:1 1 auto;
+			flex:1 1 auto;
+			
+		}
+		.imgWrapper{width:40%;}
+	</style>
+
+	<div class="orderDetail">
+		<div class="orderTop flex">
+			<div class="item">
+				<p>店铺名：Nicoshop
+				<p>订单号：463285632529</p> 
+			</div>
+			<div class="item">等待买家付款</div>
+		</div>
+		<div class="orderMiddle flex">
+			<div class="item" style="width:30%;">
+				<img src="u1720.png" width="100%">
+			</div>
+			<p class="item">精锐风格现代台灯9527台灯</p>
+			<div class="item">
+				<p>￥680.00</p>
+				<p>x2</p>
+			</div>
+		</div>
+		<div class="orderBottom flex">
+			<div class="item">合计：￥690.00</div>
+			<div class="item">
+				<a href="#">取消</a>
+				<a href="#">付款</a>
+			</div>
+		</div>
+	</div>
+
+
+	
+</body>
+</html>
