@@ -18,17 +18,31 @@
 <label class="nav nav-my" for="my">自我<br/>评价</label>
 
 <div class="banner">
-    <div>ShariseMo</div>
+    <div class="logo"><img src="./img/avatar.jpg"></div>
+    <div class="desc">
+        <p>F2E</p>
+        <p>个人简历</p>
+    </div>
+    <div class="banner_right">
+        <a target="_blank" href="https://github.com/ShariseMo/">Github</a>
+        <a target="_blank" href="http://www.jianshu.com/u/484ea0270fe1">简书</a>
+        <a href="">11</a>
+        <a href="">111</a>
+    </div>
 </div>
 <div class="container" id="container">
     <section class="page">
       <div class="inner">
             <div class="avatar_box"><img src="" class="avatar"></div>
-            <h3>前端妹子jfjjjdgdgjdj</h3>
-            <p>我叫。。。</p>
-            <p>今年24岁</p>
-            <p>联系电话：</p>
-            <p>邮箱：</p>
+            <h3>熟悉前后端交互，有意向酷炫特效网站方向发展的前端妹子一枚</h3>
+            <div class="info">
+                <p>我叫莫佩珊</p>
+                <p>今年24岁</p>
+                <p>最高学历：本科</p>
+                <p>所在城市：广州</p>
+                <p>联系电话：15088132611</p>
+                <p>邮箱：1009708910@qq.com</p>
+            </div>
       </div>
     </section>
     <section class="page">
@@ -91,5 +105,15 @@
         </div>
     </section>
 </div>
+
+
+<script type="text/javascript" src="./jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+    $(".desc").hover(function(){
+        $(".desc").html("<p>Resume</p><p>前端工程师</p>");
+    },function(){
+        $(".desc").html("<p>F2E</p><p>个人简历</p>");
+    });
+</script>
 </body>
 </html>
