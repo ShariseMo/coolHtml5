@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>E购宝终端管理后台登陆</title>
+	<link rel="stylesheet" href="./style/init.css">
+	<link rel="stylesheet" href="./style/login.css">
+</head>
+<body>
+	<div class="content_box">
+		<div class="login_box">
+			<img src="../../images/client_background/login_logo.png" alt="">
+			<div class="login_form">
+				<div class="input_group">
+					<label for="account">用户名:</label>
+					<input type="text" v-model="account" id="account">
+				</div>
+				<div class="input_group">
+					<label for="pwd">密码:</label>
+					<input type="password" v-model="pwd" id="pwd">
+				</div>
+				<div class="input_group">
+					<input type="checkbox" id="remenber_pwd">
+					<label for="remenber_pwd">记住密码</label>
+				</div>
+
+				<button class="btn">登录</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
