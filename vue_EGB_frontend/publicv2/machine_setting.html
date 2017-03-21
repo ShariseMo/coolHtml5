@@ -1,0 +1,163 @@
+	<div class="top">
+		<h2>以下是该机器的【机器设置】</h2>
+	</div>
+	<div class="content_box">
+	<form action="" method="" id="machine_info_form" name="machine_info_form">
+		<input type="hidden" name="machineId">
+		<div class="input_group">
+			<label>机器名称：</label>
+			<input type="text" name="machineName" >
+		</div>
+		<div class="input_group">
+			<label>邀请码：</label>
+			<input type="text" name="invitationCode" disabled>
+		</div>
+		<div class="input_group">
+			<label>运营场所：</label>
+			<input type="hidden" name="machineWorkArea" value="">
+			<span><input type="checkbox" class="workArea1"  value="1">门店</span>
+			<span><input type="checkbox" class="workArea1"  value="2">售楼部</span>
+			<span><input type="checkbox" class="workArea1"  value="3">小区</span>
+			<span><input type="checkbox" class="workArea1"  value="4">合作联盟</span>
+			<span><input type="checkbox" class="workArea1"  value="5">商城</span>
+			<span><input type="checkbox" class="workArea1"  value="6">活动现场</span>
+			<span><input type="checkbox" class="workArea1"  value="7">市场门槛</span>
+			<span><input type="checkbox" class="workArea1"  value="0">其他</span>
+		</div>
+		<div class="input_group">
+			<p class="location">
+				<label>地址定位：</label>
+				<img src="image/client_background/addr_icon.png">
+				<!-- onclick="$('.editLocation').css('display','inline-block')" -->
+				<span style="color:#2AAFE9;">修改地址定位</span>
+				<span>（设置后在屏保能显示当地天气）</span>
+			</p>
+			<p class="editLocation">
+				<select class="province" name="machineProvince" ></select>
+				<select class="city" name="machineCity" ></select>
+				<select class="district" name="machineDistrict" ></select>
+				<select class="town" name="machineTown" ></select>
+				<input type="text" name="machineAddr" placeholder=" 详细地址"/>
+			</p>
+		</div>
+	</form>
+	<div class="input-group">
+			<button class="btn_save" onclick="machine_info_save()">保存</button>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+
+	$(function(){
+		getMachineInfo(function(data){
+			// 运营场所
+			data['machineWorkArea'] = data['machineWorkArea'] || "";
+			var workArea = data['machineWorkArea'].split(',');
+			var checkList = $('input[type=checkbox]');
+			for(var j = 0;j<checkList.length;j++){
+				for(var k = 0; k<workArea.length;k++){
+					if(checkList[j].value==workArea[k])  
+						checkList[j].checked=true;
+				}
+			}
+							
+			// 机器信息赋值
+			var pid = data['machineProvince'];
+			var cid = data['machineCity'];
+			var did = data['machineDistrict'];
+			var tid = data['machineTown'];
+			// form
+			$("input[name=machineId]").val(data['machineId']);
+			$("input[name=machineName]").val(data['machineName']);
+			$("input[name=invitationCode]").val(data['invitationCode']);	
+
+			// 地址初始绑定
+			select();
+			
+			if(pid){
+				$('.province').val(pid).change();
+				$('.city').val(cid).change();
+				$('.district').val(did).change();
+				$('.town').val(tid).change();
+				$('input[name=machineAddr]').val(data['machineAddr']);
+			}							
+		});
+	});
+
+	// 改变省市区时后面的对应归零
+	// function initArea(obj){
+	// 	$(obj).nextSbiling().val('');
+	// }
+
+	// 更新机器信息
+	function machine_info_save(){		
+		var area = $('.workArea1:checked');
+		var str = "";
+		for(var i=0;i<area.length;i++){
+			if(i==area.length-1){
+				str += area[i].value;
+			}else
+				str += area[i].value +',';
+		}
+		$('input[name=machineWorkArea]').val(str);
+
+		var machineId = getUrlParam('machineId');
+		var data1 = $('#machine_info_form').serialize();
+		$.ajax({
+			url:"/machine_info/"+machineId,
+			data:data1,
+			method:"post",
+			success:function(){
+				// console.log(data1);
+				layer.msg('保存成功！');
+				fillMachineInfo();
+			}
+
+		});
+	}
+
+	// function machine_info(){
+	// 	var machineId = getUrlParam('machineId');
+	// 	$.ajax({
+	// 		url:"/machine/"+machineId,
+	// 		method:'get',
+	// 		dataType:'json',
+	// 		success:function(result){
+	// 			var data = result['data'];
+	// 			// console.log(data);
+
+	// 			// 运营场所
+	// 			data['machineWorkArea'] = data['machineWorkArea'] || "";
+	// 			var workArea = data['machineWorkArea'].split(',');
+	// 			var checkList = $('input[type=checkbox]');
+	// 			for(var j = 0;j<checkList.length;j++){
+	// 				for(var k = 0; k<workArea.length;k++){
+	// 					if(checkList[j].value==workArea[k])  
+	// 						checkList[j].checked=true;
+	// 				}
+	// 			}
+	// 			// machineWorkArea = getWorkAreaName(workArea);
+				
+	// 			// 机器信息赋值
+	// 			var pid = data['machineProvince'];
+	// 			var cid = data['machineCity'];
+	// 			var did = data['machineDistrict'];
+	// 			var tid = data['machineTown'];
+	// 			// form
+	// 			$("input[name=machineId]").val(data['machineId']);
+	// 			$("input[name=machineName]").val(data['machineName']);
+	// 			$("input[name=invitationCode]").val(data['invitationCode']);	
+
+	// 			// 地址初始绑定
+	// 			select();
+	// 			if(pid){
+	// 				$('.province').val(pid).change();
+	// 				$('.city').val(cid).change();
+	// 				$('.district').val(did).change();
+	// 				$('.town').val(tid).change();
+	// 			}							
+	// 		}
+	// 	});
+	// }
+	</script>

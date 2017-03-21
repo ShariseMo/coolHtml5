@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>E购宝管理后台</title>
+	<link rel="stylesheet" type="text/css" href="./style/Font-Awesome-3.2.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./style/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="./style/bootstrap-2.3.2.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="./style/main2.css">
+	<link rel="stylesheet" type="text/css" href="./style/machineManager.css">
+</head>
+<body>
+	<!-- top_bar -->
+	<div class="top_bar">
+		<div class="container_box">
+			<span class="top_left">欢迎使用E购宝管理后台</span>
+			<span class="top_right">
+				<ul>
+					<li class="qrcode_span">
+						<a href="#"><img src="image/icon_qrcode.png">&nbsp;公众号</a>
+						<div  class="EDS_qrcode"><img src="image/eds_qrcode.png" width="200"></div>
+					</li>
+					<li><a href="http://wiki.edsmall.cn/" target="_blank"><img src="image/icon_baike.png">&nbsp;EDS百科</a></li>
+					<li class="kefu_span">
+						<a href="#"><img src="image/icon_kefu.png">&nbsp;联系客服 <img src="image/icon_arrow.png" class="kefu_arrow"></a>
+						<div class="kefu_box">
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_zxh.png" class="left">
+								<div class="left">
+									<p>姓名：周小欢</p>
+									<p>手机:18813399491</p>
+									<p>微信:18813399491</p>
+								</div>
+							</div>
+							<div class="underline"></div>
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_fyh.png" class="left">
+								<div class="left">
+									<p>姓名：周小欢</p>
+									<p>手机:18813399491</p>
+									<p>微信:18813399491</p>
+								</div>
+							</div>
+							<div class="underline"></div>
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_wm.png" class="left">
+								<div class="left">
+									<p>姓名：周小欢</p>
+									<p>手机:18813399491</p>
+									<p>微信:18813399491</p>
+								</div>
+							</div>
+							
+						
+						</div>
+					</li>
+					<li class="user_span">
+						<a href="#"><img src="image/icon_user.png">&nbsp;<span class="username">用户名</span> <img src="image/icon_arrow.png" class="user_arrow"></a>
+						<div class="user_box">
+							<p><a href="http://dxe.edsmall.cn"><i class="icon-lock"></i>&nbsp;修改密码</a></p>
+							<div class="underline"></div>
+							<p><a href="./login.html"><i class="icon-off"></i>&nbsp;退出</a></p>
+
+						</div>
+					</li>
+				</ul>
+
+				<!-- hover-block -->
+				
+			</span>
+		</div>
+	</div>
+	<!-- top_bar END -->
+
+	<!-- head_bar -->
+	<div class="head_bar">
+		<div class="container_box">
+			<span class="head_left">
+				<img src="image/egb_logo.png">
+				<span class="title">客户终端管理后台</span>
+			</span>
+			<span class="head_right"></span>
+		</div>
+	</div>
+	<!-- head_bar END -->
+
+	<!-- 中间内容 -->
+	<div class="body_content">
+		<div class="container_box">
+			<div class="content_top">
+				<table>
+					<tr>
+						<td>机器名称：<span class="machineName"></span></td>
+						<td>区域地址：<span class="addr"></span></td>
+						<td></td>
+						<td rowspan="2"><a href="./index.html" class="btn_back"><img src="./image/client_background/back_btn.png">&nbsp;返回</a></td>
+					</tr>
+					<tr>
+						<td>邀请码：<span class="invitationCode"></span></td>
+						<td>机器编码：<span class="machineNo"></span></td>
+						<td>运营场所：<span class="machineWorkArea"></span></td>
+					</tr>
+				</table>
+			</div>
+			<!-- 机器 -->
+			<div class="manage_content">
+				<div class="left_nav">
+					<ul>
+						<li><a href="#" class="machine_setting active v-link-active" onclick="load_page(this,'.machine_setting_box','machine_setting.html')">机器设置</a></li>
+						<li><a href="#" class="kefu_setting" onclick="load_page(this,'.kefu_setting_box','kefu_setting.html')">客服设置</a></li>
+						<li><a href="#" class="shop_setting" onclick="load_page(this,'.shop_setting_box','shop_setting.html')">店铺设置</a></li>
+						<li><a href="#" class="adv_setting" onclick="load_page(this,'.adv_setting_box','adv_setting.html')">屏保设置</a></li>
+						<li><a href="#" class="activity_setting" onclick="load_page(this,'.activity_setting_box','activity_setting.html')">活动设置</a></li>
+					</ul>
+				</div>
+				<!-- 设置 -->
+				<div class="m_right_content machine_setting_box fade-transition"></div>
+				<div class="m_right_content kefu_setting_box fade-transition"></div>
+				<div class="m_right_content shop_setting_box fade-transition"></div>
+				<div class="m_right_content adv_setting_box fade-transition"></div>
+				<div class="m_right_content activity_setting_box fade-transition"></div>
+			</div>			
+		</div>
+	</div>
+	<!-- body_content END -->
+
+	<!-- copyRight -->
+	<div class="copyRight">
+		<div class="container_box">
+			<ul>
+				<li>EDS会员商城</li>
+				<li>www.edsmall.cn</li>
+				<li>免费热线4006-621-721</li>
+				<li>咨询QQ：4006-621-721</li>
+				<li>EDS百科</li>
+				<li>粤ICP备14009360号</li>
+			</ul>
+		</div>
+	</div>
+	<!-- copyRight End-->
+
+	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/layer/layer.js"></script>
+	<script type="text/javascript" src="./js/jq-form.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/areaList.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<!-- Qiniu -->
+	<script type="text/javascript" src="./js/qiniu/plupload/moxie.js"></script>
+	<script type="text/javascript" src="./js/qiniu/plupload/plupload.full.min.js"></script>
+	<script type="text/javascript" src="./js/qiniu/plupload/plupload.dev.js"></script>
+	<script type="text/javascript" src="./js/qiniu/plupload/i18n/zh_CN.js"></script>
+	<script type="text/javascript" src="./js/qiniu/src/qiniu.js"></script>
+	<script type="text/javascript">
+
+	// 全局变量
+	var machineName,
+		machineProvince, machineCity, machineDistrict, machineTown,machineAddr,
+		invitationCode,
+		machineNo,
+		machineWorkArea;
+	var machineInfo;
+
+	$(function(){
+		initPage();	
+		fillMachineInfo();
+
+		
+		$('.machine_setting_box').css('display','inline-block').siblings('.m_right_content').css('display','none');
+		load_page('.machine_setting','.machine_setting_box','machine_setting.html');
+		
+	})
+
+	// 点击切换右侧内容页
+	function load_page(obj,setting_box,page){
+		$(obj).addClass('active').parent().siblings().children().removeClass('active');
+		$(setting_box).css('display','inline-block').siblings('.m_right_content').css('display','none');
+		$(setting_box).load(page);
+		// machine_info();
+	}
+
+
+	function getMachineInfo(callback){
+		if(machineInfo) callback(machineInfo);
+		var machineId = getUrlParam('machineId');
+		$.ajax({
+			url:"/machine/"+machineId,
+			method:'get',
+			dataType:'json',
+			success:function(result){
+				// console.log(result);
+				var data = result['data'];
+				machineInfo = data;
+				callback(machineInfo);
+			}			
+		});
+	}
+
+	function fillMachineInfo(){
+		getMachineInfo(function(data){
+			data['machineWorkArea'] = data['machineWorkArea'] || "";
+			var workArea = data['machineWorkArea'].split(',');
+			machineWorkArea = getWorkAreaName(workArea);
+			// 机器信息赋值
+			var pid = data['machineProvince'];
+			var cid = data['machineCity'];
+			var did = data['machineDistrict'];
+			var tid = data['machineTown'];
+			machineProvince = getProName(pid);
+			machineCity = getCityName(cid);
+			machineDistrict = getDistrictName(did);
+			machineTown = getTownName(tid);
+			machineAddr = data['machineAddr'];
+			machineProvince = (machineProvince==undefined)?"":machineProvince;
+			machineCity = (machineCity==undefined)?"":machineCity;
+			machineDistrict = (machineDistrict==undefined)?"":machineDistrict;
+			machineTown = (machineTown==undefined)?"":machineTown;
+			machineAddr = (machineAddr==undefined)?"":machineAddr;
+			$('.machineName').html(data['machineName']);	
+			$('.addr').html(machineProvince+" "+machineCity+" "+machineDistrict+" "+machineTown+" "+machineAddr);
+			$('.invitationCode').html(data['invitationCode']);
+			$('.machineNo').html(data['machineNo']);
+			$('.machineWorkArea').html(machineWorkArea);
+		});
+	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>E购宝管理后台</title>
+	<link rel="stylesheet" type="text/css" href="./style/Font-Awesome-3.2.1/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./style/main2.css">
+</head>
+<body>
+	<!-- top_bar -->
+	<div class="top_bar">
+		<div class="container_box">
+			<span class="top_left">欢迎使用E购宝管理后台</span>
+			<span class="top_right">
+				<ul>
+					<li class="qrcode_span">
+						<a href="#"><img src="image/icon_qrcode.png">&nbsp;公众号</a>
+						<div  class="EDS_qrcode"><img src="image/eds_qrcode.png" width="200"></div>
+					</li>
+					<li><a href="http://wiki.edsmall.cn/" target="_blank"><img src="image/icon_baike.png">&nbsp;EDS百科</a></li>
+					<li class="kefu_span">
+						<a href="#"><img src="image/icon_kefu.png">&nbsp;联系客服 <img src="image/icon_arrow.png" class="kefu_arrow"></a>
+						<div class="kefu_box">
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_zxh.png" class="left">
+								<div class="left">
+									<p>姓名：周小欢</p>
+									<p>手机:18813399491</p>
+									<p>微信:18813399491</p>
+								</div>
+							</div>
+							<div class="underline"></div>
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_fyh.png" class="left">
+								<div class="left">
+									<p>姓名：方盈花</p>
+									<p>手机:18813399517</p>
+									<p>微信:18813399517</p>
+								</div>
+							</div>
+							<div class="underline"></div>
+							<div class="kefu_box_list">
+								<img src="image/service_qrcode_wm.png" class="left">
+								<div class="left">
+									<p>姓名：吴梦</p>
+									<p>手机:15007605221</p>
+									<p>微信:15007605221</p>
+								</div>
+							</div>
+							
+						
+						</div>
+					</li>
+					<li class="user_span">
+						<a href="#"><img src="image/icon_user.png">&nbsp;<span class="username">用户名</span> <img src="image/icon_arrow.png" class="user_arrow"></a>
+						<div class="user_box">
+							<p><a href="http://dxe.edsmall.cn"><i class="icon-lock"></i>&nbsp;修改密码</a></p>
+							<div class="underline"></div>
+							<p><a href="./login.html"><i class="icon-off"></i>&nbsp;退出</a></p>
+
+						</div>
+					</li>
+				</ul>
+
+				<!-- hover-block -->
+				
+			</span>
+		</div>
+	</div>
+	<!-- top_bar END -->
+
+	<!-- head_bar -->
+	<div class="head_bar">
+		<div class="container_box">
+			<span class="head_left">
+				<img src="image/egb_logo.png">
+				<span class="title">客户终端管理后台</span>
+			</span>
+			<span class="head_right"></span>
+		</div>
+	</div>
+	<!-- head_bar END -->
+
+	<!-- body_content -->
+	<div class="body_content">
+		<div class="container_box">
+			<div class="content_top">
+				<form action="" method="POST" id="machineForm">
+					<label>机器名称：</label>
+					<input type="text" name="machineName" id="machineName">
+					<input type="button" value="查询" class="btn_search" onclick="search()">
+					<span class="tips">提醒：E购宝返回到window桌面默认密码为888888</span>
+				</form>
+			</div>
+			<div class="content_table">
+				<table cellpadding="0" cellspacing="0" >
+					<thead>
+					<tr class="t_head">
+						<th>序号</th>
+						<th>机器名称</th>
+						<th>邀请码</th>
+						<th>区域地址</th>
+						<th>运营场所</th>
+						<th>机器编码</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="pagination">
+				<span class="firstPage"><img src="image/first_page_btn.jpg" onclick="first_last(1)"></span>
+				<span class="prePage"><img src="image/pre_page_btn.jpg" onclick="pre_next(-1)"></span>
+				<span>第<span class="pageNumber"></span>页/共<span class="totalPages"></span>页</span>
+				<span class="nextPage"><img src="image/next_page_btn.jpg" onclick="pre_next(1)"></span>
+				<span class="lastPage"><img src="image/last_page_btn.jpg" onclick="first_last(totalPages)"></span>
+			</div>
+		</div>
+	</div>
+	<!-- body_content END -->
+
+	<!-- copyRight -->
+	<div class="copyRight">
+		<div class="container_box">
+			<ul>
+				<li>EDS会员商城</li>
+				<li>www.edsmall.cn</li>
+				<li>免费热线4006-621-721</li>
+				<li>咨询QQ：4006-621-721</li>
+				<li>EDS百科</li>
+				<li>粤ICP备14009360号</li>
+			</ul>
+		</div>
+	</div>
+	<!-- copyRight End-->
+
+	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<!-- <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script> -->
+	<script type="text/javascript" src="./js/areaList.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		pageNum=1;
+		totalPages=0;
+		machineName = "";
+		initPage();
+		loadData();
+	})
+
+	// 页码判断
+	function page(){
+		if(pageNum == 1){
+			$('.firstPage').css('display','none');
+			$('.prePage').css('display','none');
+		}
+		if(pageNum != totalPages){
+			$('.nextPage').css('display','inline-block');
+			$('.lastPage').css('display','inline-block');
+		}
+	}
+
+	// 加载列表数据
+	function loadData(){
+		$.ajax({
+			url:"/machines",
+			method:"get",
+			dataType:'json',
+			data:{
+				'pageNumber':pageNum,
+				'machineName':machineName,
+				'pageSize':'30',
+			},
+			success:function(result){
+				// 列表数据
+				// alert(result);
+				totalPages = result['data']['totalPages'];
+				var list = result['data']['list'];
+				var pid,cid,did,tid;
+				var addr;
+				for(var item=0;item<list.length;item++){
+					list[item]['machineName'] = list[item]['machineName'] || "";
+					list[item]['machineAddr'] = list[item]['machineAddr'] || "";
+					list[item]['machineWorkArea'] = list[item]['machineWorkArea'] || "";
+					var workArea = list[item]['machineWorkArea'].split(',');
+					list[item]['machineWorkArea'] = getWorkAreaName(workArea);
+
+					// 区域地址
+					var pp = getProName(list[item]['machineProvince']);
+					var cc = getCityName(list[item]['machineCity']);
+					var dd = getDistrictName(list[item]['machineDistrict']);
+					var tt = getTownName(list[item]['machineTown']);
+					pp = (pp==undefined)?"":pp;
+					cc = (cc==undefined)?"":cc;
+					dd = (dd==undefined)?"":dd;
+					tt = (tt==undefined)?"":tt;
+					$('.content_table table tbody').append(
+						"<tr><td>"+(item+1)+"</td><td>"+list[item]['machineName']+"</td><td>"+list[item]['invitationCode']+"</td><td>"+pp+cc+dd+tt+list[item]['machineAddr']+"</td><td>"+list[item]['machineWorkArea']+"</td><td>"+list[item]['machineNo']+"</td><td><a href='./machineManage.html?machineId="+list[item]['machineId']+"' class='oper'>机器管理</a></td></tr>"
+					);
+				}
+				// 页码
+				$('.pageNumber').html(result['data']['pageNumber']);
+				$('.totalPages').html(result['data']['totalPages']);
+			},
+			
+		});
+	}// ajax End
+	
+	// 查询
+	function search(){
+		var str1 = $('#machineName').val();
+		var str2 = $.trim(str1);
+		machineName = str2;
+		$('.content_table table tbody').html('');
+		loadData();
+	}
+
+	// 页码
+	function first_last(page){
+		pageNum = page;
+		$('.content_table table tbody').html('');
+		loadData();
+	}
+	function pre_next(num){
+		pageNum = pageNum + num;
+		$('.content_table table tbody').html('');
+		loadData();
+	}	
+	</script>
+</body>
+</html>

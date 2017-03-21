@@ -1,0 +1,161 @@
+<div class="top">
+	<h2>以下是该机器的【活动设置】</h2>
+	<span><a href="#" class="btn_edit" data-toggle="modal" data-target="#clientModal" onclick="clientList()">已领取的客户</a></span>
+</div>
+<div class="content_box">
+	<div class="activityForm">
+	<form id="activityForm">
+		<input type="hidden" name="discountId">
+		<input type="hidden" name="userId">
+		<p>活动标题：<input type="text" name="discountTitle"></p>
+		<p>联系电话：<input type="text" name="discountTel" class=""></p>
+		<p>有效时间：<input type="date" name="beginDate" class="input1"> - <input type="date" name="endDate" class="input1"></p>
+		<p>使用地址：<input type="text" name="discountStoreAddr"></p>
+		<p>使用说明：<input type="text" name="discountDesc"></p>
+		<input type="hidden" name="isShared" value="">
+	</form>
+	<div>
+		<button class="btn_save" onclick="saveDiscount()">保存</button>
+		<input type="checkbox" name="isShared" id="isShared" value="">运用到所有机器
+	</div>
+	</div>
+	
+	<!-- 弹框（已领取的用户） -->		
+	<div class="modal fade" id="clientModal" tabindex="-1" role="dialog" aria-labelledby="clientModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">X</span>
+					</button>
+					<h4 class="modal-title" id="clientModalLabel">已领取优惠券的客户</h4>
+					
+				</div>
+				<div class="modal-body">
+					<div class="table_box">
+						<table id="ticketTable" style="text-align:center;">
+							<thead>
+								<tr>
+									<th style="border:1px solid #ccc;text-align:center;">序号</th>
+									<th style="border:1px solid #ccc;text-align:center;">手机号码</th>
+									<th style="border:1px solid #ccc;text-align:center;">领取时间</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div class="pagination">
+						<span class="firstPage"><img src="image/first_page_btn.jpg" onclick="first_last(1)"></span>
+						<span class="prePage"><img src="image/pre_page_btn.jpg" onclick="pre_next(-1)"></span>
+						<span>第<span class="pageNumber"></span>页/共<span class="totalPages"></span>页</span>
+						<span class="nextPage"><img src="image/next_page_btn.jpg" onclick="pre_next(1)"></span>
+						<span class="lastPage"><img src="image/last_page_btn.jpg" onclick="first_last(totalPages)"></span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn_ok">确定</button> -->
+					<button type="button" class="btn_cancel" data-dismiss="modal">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+
+<script type="text/javascript">
+
+	var pageNum = 1;
+	var totalPages = 0;
+
+
+	function loadData(){
+		var machineId = getUrlParam('machineId');
+		$.ajax({
+			url:"/machine_discount/"+machineId,
+			method:"get",
+			success:function(result){
+				var data = result['data'];
+				console.log(data);
+				$('input[name=discountId]').val(data['discountId']);
+				$('input[name=userId]').val(data['userId']);
+				$('input[name=discountTitle]').val(data['discountTitle']);
+				$('input[name=discountTel]').val(data['discountTel']);
+				$('input[name=beginDate]').val(data['beginDate']);
+				$('input[name=endDate]').val(data['endDate']);
+				$('input[name=discountStoreAddr]').val(data['discountStoreAddr']);
+				$('input[name=discountDesc]').val(data['discountDesc']);
+				if(data['isShared']=="1"){
+					document.getElementById('isShared').checked=true;
+				}else{
+					document.getElementById('isShared').checked=false;
+				}
+			},
+		});
+	}	
+	window.onload=loadData();
+
+	function saveDiscount(){
+		if($('input[name=discountTitle]').val()==""){
+			layer.msg('活动标题不能为空！');
+			$('input[name=discountTitle]').focus();
+		}else{
+			if(document.getElementById('isShared').checked){
+				$('input[name=isShared]').val('1');
+			}else $('input[name=isShared]').val('0');
+			var data = $('#activityForm').serialize();
+			var machineId = getUrlParam('machineId');		
+			$.ajax({
+				url:"/machine_discount/"+machineId,
+				method:"post",
+				data:data,
+				success:function(){
+					console.log(data);
+					layer.msg("修改优惠券成功！");
+				}
+			});
+		}
+		
+	}
+
+	// 已领取的客户列表
+	function clientList(){
+		var machineId = getUrlParam('machineId');	
+		$.ajax({
+			url:"/machine_discount_log/"+machineId,
+			data:{
+				'pageNumber':pageNum,
+				'pageSize':'10'
+			},
+			method:"get",
+			success:function(result){
+				console.log(result);
+				var data = result['data'];
+				pageNum = data['pageNumber'];
+				totalPages = data['totalPages'];
+				console.log("加载成功！");
+				for(var i = 0;i<data['list'].length;i++){
+					console.log(data['list'].length);
+					var list =  data['list'][i];
+					list['sendMobile'] = list['sendMobile'] || "";
+					list['sendTime'] = list['sendTime'] || "";
+					$('#ticketTable tbody').append("<tr><td>"+(i+1)+"</td><td>"+list['sendMobile']+"</td><td>"+list['sendTime']+"</td></tr>");
+				}
+				// 页码
+				$('.pageNumber').html(pageNum);
+				$('.totalPages').html(totalPages);
+			}
+		});
+	}
+
+
+	// 页码
+	function first_last(page){
+		pageNum = page;
+		$('#ticketTable tbody').html('');
+		clientList();
+	}
+	function pre_next(num){
+		pageNum = pageNum + num;
+		$('#ticketTable tbody').html('');
+		clientList();
+	}	
+</script>

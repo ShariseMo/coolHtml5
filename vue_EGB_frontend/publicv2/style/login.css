@@ -1,0 +1,84 @@
+html, body {
+  height: 100%;
+  width: 100%; }
+  html label, body label {
+    font-weight: normal; }
+
+.content_box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 0px; }
+  .content_box .blue_box, .content_box .gray_box {
+    height: 50%;
+    width: 100%; }
+  .content_box .blue_box {
+    background-color: #27aee8; }
+  .content_box .gray_box {
+    background-color: #e3e3e3; }
+  .content_box .login_box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 900px;
+    height: 400px;
+    margin-top: -185px;
+    margin-left: -400px; }
+    .content_box .login_box .logo_img {
+      display: inline-block;
+      vertical-align: middle;
+      width: 40%; }
+    .content_box .login_box .login_form {
+      display: inline-block;
+      vertical-align: middle;
+      background-color: #fff;
+      border-radius: 5px;
+      width: 55%;
+      margin-left: 2%;
+      height: 80%;
+      padding: 40px;
+      box-sizing: border-box; }
+      .content_box .login_box .login_form .input_group {
+        margin: 20px 0px; }
+        .content_box .login_box .login_form .input_group label {
+          font-size: 18px;
+          display: inline-block;
+          width: 80px; }
+        .content_box .login_box .login_form .input_group input[type="text"],
+        .content_box .login_box .login_form .input_group input[type="password"] {
+          width: 70%;
+          height: 30px;
+          background-color: #fff;
+          padding-left: 10px; }
+        .content_box .login_box .login_form .input_group input[type="checkbox"] {
+          margin-left: 80px;
+          margin-right: 10px; }
+        .content_box .login_box .login_form .input_group .forgetPwd {
+          color: #30bfe1;
+          font-size: 14px;
+          margin-left: 15px; }
+        .content_box .login_box .login_form .input_group:nth-of-type(3) {
+          padding-top: 10px; }
+      .content_box .login_box .login_form #notice {
+        color: red;
+        font-size: 14px;
+        text-align: left;
+        margin-top: -15px;
+        padding-left: 80px; }
+      .content_box .login_box .login_form .login_btn {
+        width: 120px;
+        height: 32px;
+        background-color: #2aafe9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 80px; }
+    .content_box .login_box .loginTips {
+      font-size: 18px;
+      text-align: left;
+      color: #30bfe1;
+      margin-left: 80px;
+      font-weight: bold; }
+
+/*# sourceMappingURL=login.css.map */
