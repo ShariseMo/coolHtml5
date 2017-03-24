@@ -50,48 +50,53 @@ li{list-style-type:none;text-align:left;}
 }
 
 .page{
+    position:relative;
     box-sizing: border-box;
     padding:20px;
     height:100%; 
     // background:#F6F6F6;
-    background:#ddd;
+    background:#262535;
+    color:#fff;
     .inner{
         width:70%;
         height:600px;
-        margin:150px auto;
-        border:1px solid #ccc;  
+        margin:90px auto;
+        // border:1px solid #ccc;  
         text-align:center;
+        >h3{color:#02FDFD;}
         .avatar_box{
             width:150px;
             height:150px;
-            margin:10px auto;
+            margin:10px auto 30px;
             border-radius:100%;
             background:#fff;
             >img{width:100%;border-radius:100%;}
         }
         .info{
-            >h3{padding:10px;border-bottom:3px dashed #ccc;}
-            >p{padding:5px;}
+            margin-top:10px;
+            >h3{padding:15px;border-bottom:3px dashed #ccc;}
+            >p{padding:5px;transition: width 2s;-webkit-transition: width 2s;}
         }   
     }
 }
 
 // 专业技能
 .skill_box{
-    margin:10px 95px;
+    margin:20px 0;
     .item{
         position:relative;
-        width:180px;
+        width:25%;
         float:left;
-        >img{width:80%;}
+        >img{width:80%;padding:3px;background:#fff;}
         .description{
-            width:80%;
-            margin:10px auto;
+            width:100%;
+            margin:10px;
+            padding:5px;
             background:#ccc;
             border-radius:5px;
             font-size:14px;
             color:#fff;
-            >li{text-align:left;}
+            >li{margin-left:20px;padding:5px;list-style-type:disc;text-align:left;color:#000;}
         }        
     }
 }
