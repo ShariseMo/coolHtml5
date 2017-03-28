@@ -71,22 +71,27 @@
 			</div>
 		</div>
 		<!-- 最热品牌 -->
-		<div class="hotBrand">
+		<div class="hotBrand" id="hotBrand">
 			<div class="logo"><img src="./images/mainVenue/zrmpp-title.png" width="100%"></div>
 			<ul class="brandList">
 				<li class="brandItem">
-					<div class="brandImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>明灯共和-简中</h4>
+					<div class="brandImg"><img src="./images/brand001.png"></div>
+					<h4>贝拉·卡萨</h4>
 					<a href="#" class="btn1">立即进入&nbsp;></a>
 				</li>
 				<li class="brandItem">
-					<div class="brandImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>明灯共和-简中</h4>
+					<div class="brandImg"><img src="./images/brand002.png"></div>
+					<h4>潮灯馆</h4>
 					<a href="#" class="btn1">立即进入&nbsp;></a>
 				</li>
 				<li class="brandItem">
-					<div class="brandImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>明灯共和-简中</h4>
+					<div class="brandImg"><img src="./images/brand003.png"></div>
+					<h4>磁浴豪庭</h4>
+					<a href="#" class="btn1">立即进入&nbsp;></a>
+				</li>
+				<li class="brandItem">
+					<div class="brandImg"><img src="./images/brand004.png"></div>
+					<h4>E起秀</h4>
 					<a href="#" class="btn1">立即进入&nbsp;></a>
 				</li>
 				<div class="clear"></div>
@@ -118,19 +123,19 @@
 					<a href="#" class="btn1">立即购买&nbsp;></a>
 				</li>
 				<li class="proItem">
-					<div class="proImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>秦时明月中式风格吊灯</h4>
+					<div class="proImg"><img src="./images/lamp003.png"></div>
+					<h4>现代吸顶</h4>
 					<p class="proNo">MD25648</p>
-					<p class="historyPrice">原价：<span>￥1162</span></p>
-					<p class="activityPrice">狂欢价：￥666</p>
+					<p class="historyPrice">原价：<span>￥1002</span></p>
+					<p class="activityPrice">狂欢价：￥888</p>
 					<a href="#" class="btn1">立即购买&nbsp;></a>
 				</li>
 				<li class="proItem">
-					<div class="proImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>秦时明月中式风格吊灯</h4>
+					<div class="proImg"><img src="./images/lamp004.png"></div>
+					<h4>水晶吊顶</h4>
 					<p class="proNo">MD25648</p>
-					<p class="historyPrice">原价：<span>￥1162</span></p>
-					<p class="activityPrice">狂欢价：￥666</p>
+					<p class="historyPrice">原价：<span>1239.00</span></p>
+					<p class="activityPrice">狂欢价：￥986</p>
 					<a href="#" class="btn1">立即购买&nbsp;></a>
 				</li>
 				<div class="clear"></div>
@@ -141,19 +146,19 @@
 			<div class="logo"><img src="./images/mainVenue/jj-title.png" width="100%"></div>
 			<ul class="proList">
 				<li class="proItem">
-					<div class="proImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>秦时明月中式风格吊灯</h4>
+					<div class="proImg"><img src="./images/fur001.png"></div>
+					<h4>实木餐桌</h4>
 					<p class="proNo">MD25648</p>
-					<p class="historyPrice">原价：<span>￥1162</span></p>
+					<p class="historyPrice">原价：<span>￥962</span></p>
 					<p class="activityPrice">狂欢价：￥666</p>
 					<a href="#" class="btn1">立即购买&nbsp;></a>
 				</li>
 				<li class="proItem">
-					<div class="proImg"><img src="./images/mainVenue/2.png"></div>
-					<h4>秦时明月中式风格吊灯</h4>
+					<div class="proImg"><img src="./images/fur002.png"></div>
+					<h4>沙发</h4>
 					<p class="proNo">MD25648</p>
-					<p class="historyPrice">原价：<span>￥1162</span></p>
-					<p class="activityPrice">狂欢价：￥666</p>
+					<p class="historyPrice">原价：<span>￥5562</span></p>
+					<p class="activityPrice">狂欢价：￥4666</p>
 					<a href="#" class="btn1">立即购买&nbsp;></a>
 				</li>
 				<div class="clear"></div>
@@ -209,6 +214,21 @@
 				$(".second").html(tt['second']);
 			},1000);
 		
+			// $.ajax({
+			// 	url:"./data/brand.js",
+			// 	type:"get",
+			// 	success:function(data){
+			// 		console.log(data);
+			// 		console.log(data.length);
+			// 		new Vue({
+			// 			el:"#hotBrand",
+			// 			data:{
+			// 				items:data
+			// 			}
+			// 		});
+			// 	}
+			// });
+
 		});
 
 
@@ -245,21 +265,6 @@
 		 	}
 			return less;
 		}
-
-		var brandData = 123;
-		$.ajax({
-			url:"./data/brand.js",
-			type:"get",
-			success:function(data){
-				brandData = data;
-				return brandData;
-			}
-		});
-		console.log(brandData);
-
-		var brand = new Vue({
-			// data:
-		});
 
 		
 	</script>

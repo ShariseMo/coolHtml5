@@ -14,5 +14,5 @@
 	},{
 		"brandName":"贝拉·卡萨",
 		"imgUrl":"../images/brand001.png"
-	},
+	}
 ]
