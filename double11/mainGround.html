@@ -54,7 +54,7 @@
 		<div class="header">
 			<a href="#"><img src="./images/mainVenue/cs-banner.png" width="100%"></a>
 			<ul class="classify">
-				<li><a href="#"><img src="./images/mainVenue/jj-hc.png" width="100%"></a></li>
+				<li><a href="./furniture.html"><img src="./images/mainVenue/jj-hc.png" width="100%"></a></li>
 				<li><a href="#"><img src="./images/mainVenue/dj-hc.png" width="100%"></a></li>
 				<li><a href="#"><img src="./images/mainVenue/sp-hc.png" width="100%"></a></li>
 				<div class="clear"></div>
@@ -185,13 +185,14 @@
 	</div>
 
 
-	<div class="mask" style="background:rgba(0,0,0,0.5);width:100%;height:100%;position:fixed;top:0;left:0;">
+	<!-- <div class="mask" style="background:rgba(0,0,0,0.5);width:100%;height:100%;position:fixed;top:0;left:0;">
 		<div class="popup" style="margin-top:30%;"><img src="./images/index/HomePopupAd.png" width="100%"></div>
-		<span class="close"><img src="./images/index/HomePopupAd-close-button.png" style="width:30px;position:absolute;top:18%;right:10%;"></span>
-	</div>
+		<span class="close" onclick="javascript:$('.mask').hide()"><img src="./images/index/HomePopupAd-close-button.png" style="width:30px;position:absolute;top:18%;right:10%;"></span>
+	</div> -->
 
 
 	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/vue.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			boxLength(80,'.typeList ul li','.typeList ul');
@@ -202,12 +203,12 @@
 			// 倒计时
 			var tt ;
 			setInterval(function(){
-				tt = timeCount("2016-11-11 00:00:00");
+				tt = timeCount("2017-11-11 00:00:00");
 				$(".hour").html(tt['hour']);
 				$(".min").html(tt['min']);
 				$(".second").html(tt['second']);
 			},1000);
-			
+		
 		});
 
 
@@ -245,6 +246,20 @@
 			return less;
 		}
 
+		var brandData = 123;
+		$.ajax({
+			url:"./data/brand.js",
+			type:"get",
+			success:function(data){
+				brandData = data;
+				return brandData;
+			}
+		});
+		console.log(brandData);
+
+		var brand = new Vue({
+			// data:
+		});
 
 		
 	</script>

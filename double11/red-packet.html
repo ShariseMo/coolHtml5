@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>抽红包，拼手气</title>    	
+	<script src="js/autoScrean.js"></script>
+    <style type="text/css">
+    /*red_packet*/
+    .hidden{display:none;}
+    .clear{clear:both;}
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: "微软雅黑";
+    }
+    li{list-style: none}
+    input {-webkit-appearance:none;}
+    a{text-decoration: none;color: #4F5252;}
+    .redPacket{position:absolute;max-width:750px;min-height:500px;margin:0 auto;left:0;right:0;top:0;bottom:0;overflow:hidden;font-size:0.4rem;}
+    .bg_box{width:100%;height:100%;overflow:hidden;background:url("./images/redPackage/redpack_bg.jpg") no-repeat left top;background-size:cover;}
+    .page_container{width:90%;height:100%;margin:0 5%;min-height:500px;}
+    .redpack_box{margin:5.4rem auto;margin-left:0.1rem;text-align:center;}
+    .redpack_box>span{position:relative;display:inline-block;width:32%;vertical-align:middle;}
+    .rotate{transform:rotateY(180deg);-webkit-transform:rotateY(180deg); transition: 0.6s;-webkit-transition: 0.6s;}
+    .redpack_box span img{width:90%;height:2.5rem;vertical-align:middle;}
+    .redpack_box em{display:none;position:absolute;width:1rem;top:1.2rem;left:0.45rem;font-size:0.4rem;color:#FFC92A;font-weight:bold;font-style:normal;transform:rotateY(360deg);-webkit-transform:rotateY(360deg);transition: 0.6s;-webkit-transition: 0.6s;}
+
+    .redpack_box p{font-size:0.35rem;color:#FFC92A;height:0.6rem;}
+
+    .btn_orange{display:inline-block;width:2.8rem;}
+    .btn_orange img{width:100%;}
+    
+    .mask{position:fixed;left:0;top:0;width:100%;height:100%;z-index:99;background:rgba(0,0,0,0.5);}
+    .open_box{position:relative;width:80%;height:8rem;margin:2rem auto;background:url(./images/redPackage/redBg.png);background-size: cover;}
+    .btn_close{position:absolute;right:-0.4rem;top:-0.4rem;width:0.7rem;}
+    .btn_close img{width:100%;}
+    .txt_box{width:92%;margin:4%;padding-top:0.10rem;color:#ECCC94;}
+    .txt_box h3 ,.txt_box h5 {margin-top:0.25rem;text-align:center;}
+    .txt_box h5 img{width:45%;}
+    .txt_box ol{margin-top:0.05rem;font-size:0.265rem;}
+    .btnOpen{position:absolute;width:2rem;height:2.3rem;bottom:0.6rem;left:2rem;text-align:center;}
+    .btnOpen img{width:1.6rem;margin:0.2rem 0.2rem -0.1rem;}
+    .btnOpen span{font-size:0.2rem;color:#DB5443;}
+
+    .back .txt_box h5{margin-top:0.35rem;}</style>
+</head>
+
+<body class="redPacket">
+    <div class="bg_box">
+    	<div class="page_container">
+            <div class="redpack_box">
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./images/redPackage/e.png">
+                    <em id="mon1">￥0.25</em>
+                </span>
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./images/redPackage/d.png">
+                    <em id="mon2">￥0.25</em>
+                </span>
+                <span onclick="openRedPack(this)" data-flag="0">
+                    <img src="./images/redPackage/s.png">
+                    <em id="mon3">￥0.25</em>
+                </span>
+                <div id="totalBox" class="hidden">
+                    <p>总金额:<span id="tMon">￥1.20</span></p>
+                    <!-- <p><a href="javascript:void(0)" class="btn_orange"><img src="./images/redPackage/btn.png"></a></p> -->
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <!-- 恭喜你 -->
+    <div class="mask hidden" id="openRed">
+        <div class="open_box">
+            <a href="javascript:void(0)" class="btn_close"><img src="./images/redPackage/close.png"></a>
+            <div class="txt_box">
+                <h3>恭喜你!</h3>
+                <h5>您共抽中 <span id="tMon2">1.00</span> 元红包，立即到EDS微信公众号领取红包吧！</h5>
+                <h5><img src="./images/redPackage/getMore.png"></h5>
+                <ol>
+                    <li>1.进入EDS公众号获得红包和个人推广海报；</li>
+                    <li>2.分享海报(朋友圈/私信)赢取更多摇红包机会；</li>
+                    <li>3.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
+                </ol>
+            </div>
+            <div class="btnOpen">
+                <img src="./images/redPackage/qrcode.jpg">
+                <span>长按扫一扫 拿红包</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 无机会 -->
+    <div class="mask hidden" id="sorryDialog">
+        <div class="open_box back">
+            <a href="./supplier-list.html" class="btn_close"><img src="./images/redPackage/close.png"></a>
+            <div class="txt_box">
+                <h3>抱歉</h3>
+                <h5>您今天摇一摇抽红包的机会已用完。</h5>
+                <h5><img src="./images/redPackage/getMore.png"></h5>
+                <ol>
+                    <li>1.分享海报（朋友圈/私信）赢取更多摇红包机会；</li>
+                    <li>2.每一个通过您分享海报关注我们的朋友，都会为您加一次摇一摇抽红包的机会。</li>
+                </ol>
+            </div>
+            <div class="btnOpen">
+                <img src="./images/redPackage/qrcode.jpg">
+                <span>长按扫一扫 拿红包</span>
+            </div>
+        </div>
+    </div>
+
+<script src="./js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="./js/qrcode.min.js"></script>
+<script>
+    //红包翻转 
+    function openRedPack(obj){
+		$(obj).children('img').addClass("rotate").attr("src","./images/redPackage/open.png");
+        setTimeout(function(){
+            $(obj).children("em").fadeIn(300);
+        },300);
+        $(obj).attr("data-flag","1");
+        var count = 0;
+        $(".redpack_box > span").each(function(i){
+            if($(this).attr('data-flag')=="1"){ count++;}
+        });
+        if(count>2){
+            $("#totalBox").show();
+
+            setTimeout(function(){
+                $("#openRed").show();
+            },800)
+        }
+    }
+	//红包金额随机生成
+   	function getRandom(){
+        var t = 1 + Math.random()*0.2;
+        if(t > 1.20){
+            t = 1.20;
+        }else if(t < 1.00){
+            t = 1.00;
+        }
+        t = t.toFixed(2);
+       
+        var a = (Math.random()*t).toFixed(2);
+        var b = t - a ;
+        b = (Math.random()*b).toFixed(2);
+        var c = (t-a-b).toFixed(2);
+
+        $("#mon1").html("￥"+a);
+        $("#mon2").html("￥"+b);
+        $("#mon3").html("￥"+c);
+        $("#tMon").html("￥"+t);
+
+        $("#tMon2").html(t);
+    }
+    getRandom();
+
+
+    $(".btn_close").click(function(){
+        $(".mask").hide();
+        window.location.href="./mainGround.html";
+    });
+        
+</script>
+</body>
+</html>

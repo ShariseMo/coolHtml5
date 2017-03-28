@@ -1,17 +1,18 @@
 @charset "utf-8";
 
-*{ margin:0; padding:0;}
+*{ margin:0; padding:0;font-family:"Helvetica"}
 html,body{ height:100%; overflow: hidden;}
 li{list-style-type:none;text-align:left;}
 .clear{clear:both;}
-
+.floatL{float:left;}
+.floatR{float:right}
 .banner{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:70px;
-    background:rgba(0,0,0,0.6);
+    background:rgba(255,255,255,0.3);
     z-index:99;
     color:#fff;
     .logo{
@@ -70,6 +71,7 @@ li{list-style-type:none;text-align:left;}
             margin:10px auto 30px;
             border-radius:100%;
             background:#fff;
+            box-shadow: 0 0 5px #fff;
             >img{width:100%;border-radius:100%;}
         }
         .info{
@@ -85,10 +87,13 @@ li{list-style-type:none;text-align:left;}
     margin:20px 0;
     .item{
         position:relative;
-        width:25%;
+        width:22%;
+        margin:10px;
         float:left;
-        >img{width:80%;padding:3px;background:#fff;}
+        border-radius:10px;
+        img{width:80%;padding:3px;background:#fff;border-radius:10px;}
         .description{
+            // display:none;
             width:100%;
             margin:10px;
             padding:5px;
@@ -101,9 +106,53 @@ li{list-style-type:none;text-align:left;}
     }
 }
 
+// .skill_inner{
+//     .skill{clear:both;}
+//     .img_wrap{
+//         width:200px;
+//         >img{width:100%;}
+//     }
+// }
+.exp_box{
+    margin:20px 0;
+    .item{
+        width:24%;
+        min-height:280px;
+        float:left;
+        margin:20px;
+        padding:10px;
+        background:#fff;
+        box-shadow:0 0 10px #fff;
+        cursor:pointer;
+        img{width:90%;height:120px;}
+        >p{margin-top:5px;}
+        .proName{
+            margin-top:10px;
+            color:#f60;
+            font-weight:bold;
+        }
+        .proDesc{
+            padding-left:5px;
+            border-left:5px solid #f60;
+            text-align:left;
+            font-size:14px;
+            color:#000;
+        }
+        .mine{
+            text-align:left;
+            color:#333;
+            font-size:14px;
+        }
+    }
+    .item:hover{
+        margin-top:10px;
+    }
+    .more_project >a{text-decoration:none;display:inline-block;margin:20px auto;padding:10px 30px;border:1px solid #ccc;background: #fff;}
+}
 
 
-input{
+
+.slide{
     display:none;
     visibility: hidden;
     width:0;

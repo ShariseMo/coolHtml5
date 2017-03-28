@@ -9,13 +9,13 @@
 </head>
 
 <body>
-<input name="slide" class="slide-base" type="radio" id="base" checked>
+<input name="slide" class="slide slide-base" type="radio" id="base" checked>
 <label class="nav nav-base" for="base">基本<br/>资料</label>
-<input name="slide" class="slide-skills" type="radio" id="skills">
+<input name="slide" class="slide slide-skills" type="radio" id="skills">
 <label class="nav nav-skills" for="skills">技能<br/>掌握</label>
-<input name="slide" class="slide-experience" type="radio" id="experience">
-<label class="nav nav-experience" for="experience">工作<br/>经验</label>
-<input name="slide" class="slide-my" type="radio" id="my">
+<input name="slide" class="slide slide-experience" type="radio" id="experience">
+<label class="nav nav-experience" for="experience">我的<br/>作品</label>
+<input name="slide" class="slide slide-my" type="radio" id="my">
 <label class="nav nav-my" for="my">自我<br/>评价</label>
 
 <div class="banner">
@@ -35,7 +35,7 @@
     <section class="page">
       <div class="inner">
             <div class="avatar_box"><img src="./img/avatar.jpg" class="avatar"></div>
-            <h3>熟悉前后端交互，有意向酷炫特效网站方向发展的前端妹子一枚</h3>
+            <h3>只有把自己变优秀，才能遇到更好的人。</h3>
             <div class="info">
                 <p class="animated bounceInUp" >我叫莫佩珊</p>
                 <p class="animated bounceInUp" style="-webkit-animation-delay: .5s;">今年24岁</p>
@@ -51,9 +51,8 @@
         <div class="inner skill_inner">
             <h2>技能点数</h2>
             <div class="info">
-                <p>描述语：前端的学习需要持之以恒，知识深度与广度都很重要。而前端开发的重中之重就是原生javascript的理解，而如今的思路必需有模块化，组件化，工程化</p>
                 <div class="skill_box">
-                    <div class="item">
+                   <div class="item">
                         <img src="./img/vue.jpg">
                         <ul class="description">
                             <li>能结合vue-cli，vue-router进行项目开发</li>
@@ -84,17 +83,58 @@
                             <li>注重代码规范与复用效果</li>
                             <li>了解node.js,会用npm包管理器</li>
                         </ul>
-                    </div>
+                    </div> 
                     <div class="clear"></div>
                 </div>
             </div>
+            <!-- <h2>技能指数</h2>
+            <div class="skill">
+                <div class="img_wrap floatL"><img src="./img/vue.jpg"></div>
+                <ul class="description floatR">
+                    <li>能结合vue-cli，vue-router进行项目开发</li>
+                    <li>熟悉Vue基本用法，指令等</li>
+                    <li>了解node，webpack等</li>
+                </ul>
+            </div>
+            <div class="skill">
+                <div class="img_wrap floatL"><img src="./img/vue.jpg"></div>
+                <ul class="description floatR">
+                    <li>能结合vue-cli，vue-router进行项目开发</li>
+                    <li>熟悉Vue基本用法，指令等</li>
+                    <li>了解node，webpack等</li>
+                </ul>
+            </div> -->
         </div>
     </section>
     <section class="page">
         <div class="inner">
             <h2>项目经验</h2>
             <p>网站首页：https://sharisemo.github.io/coolHtml5/sellerPage/</p>
-            <p></p>
+            <div class="exp_box">
+                <div class="item" onclick="window.open('http://m.edsmall.cn/index?invitation=4411','_blank')">
+                    <img src="./img/pro001.png" alt="exp001">
+                    <p class="proName">会员商城手机端</p>
+                    <p class="proDesc">类似于天猫的商城网站</p>
+                    <p class="mine">我主要负责该商城的订单部分和页面排版。<br>
+                    收货：巩固了jQuery基础和排版能力，交互优化。</p>
+                </div>
+                <div class="item" onclick="window.open('https://sharisemo.github.io/coolHtml5/sellerPage/','_blank')">
+                    <img src="./img/pc.png" alt="exp001">
+                    <p class="proName">展示型网站</p>
+                    <p class="proDesc">扁平化设计风格</p>
+                    <p class="mine">全屏的展示型网站首页，主要尝试多种设计布局</p>
+                </div>
+                <div class="item" onclick="window.open('https://sharisemo.github.io/coolHtml5/double11/mainGround.html','_blank')">
+                    <img src="./img/pro002.png" alt="exp001">
+                    <p class="proName">活动小游戏</p>
+                    <p class="proDesc">领红包游戏</p>
+                    <p class="mine">用vue.js填充数据</p>
+                </div>
+                <div class="clear"></div>
+                <div class="more_project">
+                    <a href="#" class="btn_more">更多作品</a>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -115,10 +155,10 @@
     });
 
     $(".skill_box .item").hover(function(){
-        $(this).children("ul").fadeIn();
-        $(this).siblings(".item").children("ul").hide();
+        $(this).children(".description").fadeIn();
+        $(this).siblings(".item").children(".description").hide();
     },function(){
-        $(this).children("ul").hide();
+        $(this).children(".description").hide();
     });
 </script>
 </body>

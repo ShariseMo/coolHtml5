@@ -1,0 +1,18 @@
+[
+	{
+		"brandName":"贝拉·卡萨",
+		"imgUrl":"../images/brand001.png"
+	},{
+		"brandName":"潮灯馆",
+		"imgUrl":"../images/brand002.png"
+	},{
+		"brandName":"磁浴豪庭",
+		"imgUrl":"../images/brand003.png"
+	},{
+		"brandName":"E起秀",
+		"imgUrl":"../images/brand004.png"
+	},{
+		"brandName":"贝拉·卡萨",
+		"imgUrl":"../images/brand001.png"
+	},
+]
