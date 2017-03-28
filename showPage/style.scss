@@ -64,6 +64,7 @@ li{list-style-type:none;text-align:left;}
         margin:90px auto;
         // border:1px solid #ccc;  
         text-align:center;
+        // >h2{width:200px;margin:5px auto;padding-bottom:10px;border-bottom:2px solid #fff;}
         >h3{color:#02FDFD;}
         .avatar_box{
             width:150px;
@@ -91,9 +92,9 @@ li{list-style-type:none;text-align:left;}
         margin:10px;
         float:left;
         border-radius:10px;
-        img{width:80%;padding:3px;background:#fff;border-radius:10px;}
+        img{width:80%;background:#fff;border-radius:100%;}
         .description{
-            // display:none;
+            display:none;
             width:100%;
             margin:10px;
             padding:5px;
@@ -113,11 +114,12 @@ li{list-style-type:none;text-align:left;}
 //         >img{width:100%;}
 //     }
 // }
+// 项目经验
 .exp_box{
-    margin:20px 0;
+    margin:20px auto;
     .item{
         width:24%;
-        min-height:280px;
+        min-height:330px;
         float:left;
         margin:20px;
         padding:10px;
@@ -125,7 +127,7 @@ li{list-style-type:none;text-align:left;}
         box-shadow:0 0 10px #fff;
         cursor:pointer;
         img{width:90%;height:120px;}
-        >p{margin-top:5px;}
+        >p{line-height:25px;}
         .proName{
             margin-top:10px;
             color:#f60;
@@ -141,16 +143,22 @@ li{list-style-type:none;text-align:left;}
         .mine{
             text-align:left;
             color:#333;
-            font-size:14px;
+            font-size:12px;
         }
     }
     .item:hover{
         margin-top:10px;
     }
-    .more_project >a{text-decoration:none;display:inline-block;margin:20px auto;padding:10px 30px;border:1px solid #ccc;background: #fff;}
+    .more_project >a{text-decoration:none;display:inline-block;margin:20px auto;padding:10px 50px;border:1px solid #ccc;background: #fff;}
 }
 
-
+// 自我评价
+.recoMyself{
+    margin:20px auto;
+    p{
+        line-height:30px;
+    }
+}
 
 .slide{
     display:none;
