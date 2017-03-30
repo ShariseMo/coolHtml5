@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+	<title>demo3d</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0	
+		}
+		html,body{
+			height: 100%;
+			width:100%;
+			/*background: gray;*/
+		}
+
+		.img{
+			animation:mymove 1s normal;
+			-webkit-animation:mymove 1s normal; /* Safari 和 Chrome */
+		}
+		@keyframes mymove
+		{
+			from {
+				transform: rotateY(0deg);
+				-webkit-transform:rotateY(0deg);
+			}
+			to {
+				transform: rotateY(360deg);
+				-webkit-transform:rotateY(360deg);
+			}
+		}
+
+		@-webkit-keyframes mymove /*Safari and Chrome*/
+		{
+			from {
+				transform: rotateY(0deg);
+				-webkit-transform:rotateY(0deg);
+			}
+			to {
+				transform: rotateY(360deg);
+				-webkit-transform:rotateY(360deg);
+			} 
+		}
+		img{
+			position: absolute;
+			width:100%;
+		}
+		.row{
+			padding: 2px;
+			display:center;
+			margin:0 auto;
+			/*display:flex;
+			-webkit-display:flex;
+		    display: -webkit-box; /*Safari,Opera,Chrome*/
+		   /* display: box;*/
+		}
+		.wrap{
+			position:relative;
+			overflow:hidden;
+			width:30%;
+			/*min-height:100px;*/
+			/*height:30%;*/
+			margin:3px 1px;
+			display:inline-block;
+		}
+
+	</style>
+	<script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="wrap">
+			<img class="back"  id="sample" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/1.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/2.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/3.jpg" alt="Loading">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/4.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/5.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/6.jpg" alt="Loading">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/7.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/8.jpg" alt="Loading">
+		</div>
+
+		<div class="wrap">
+			<img class="back" src="img/2.jpg" alt="Loading" >
+			<img class="front" src="img/9.jpg" alt="Loading">
+		</div>
+	</div>
+
+
+<script>
+$(function(){
+	window.onload=function(){
+		var _height = $('#sample').attr('height');
+		alert(_height);
+		$('.wrap').css('height',_height);
+		$('.row').css('height',_height);
+		$('.front').tap(function(){
+			test(this);
+		});
+		function test(_this){
+			$(_this).hide();
+			$(_this).prev().addClass('img');
+			setTimeout(function(){
+				$('.front').hide();
+				$('.back').addClass('img');
+				alert("a");
+			},1000);
+		}
+	}
+	
+});
+
+</script>
+</body>
+</html>
