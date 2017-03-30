@@ -26,17 +26,19 @@
         winH = window.innerHeight,
         qrcodeW = 0.3*winW,
         marginL = 0.35*winW,
-        marginT = 0.9*winW;
+        marginT = 0.92*winW;
     c.width = winW;
     c.height = winH;
     var ctx=c.getContext("2d");
     var img1=document.getElementById("poster1");
     var img2=document.getElementById("qrcode");
-    img1.crossOrigin = "*" ;
-    img2.crossOrigin = "*" ;
+    // img1.crossOrigin = "*" ;
+    // img2.crossOrigin = "*" ;
 
     function draw() {
         ctx.drawImage(img1,0,30,winW,posterH);
+        ctx.fillStyle="#fff";
+        ctx.fillRect(marginL-5,marginT-5,qrcodeW+10,qrcodeW+10);
         ctx.drawImage(img2,marginL,marginT,qrcodeW,qrcodeW);
 
         var base64 = c.toDataURL('images/png');//注意是canvas元素才有 toDataURL 方法  
