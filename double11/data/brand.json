@@ -119,7 +119,7 @@
 			"price":422
 		},
 		{
-			"imgUrl":"./images/product/DECO002.png",
+			"imgUrl":"./images/product/deco002.png",
 			"proName":"壶群",
 			"proNo":"GZ002",
 			"originPrice":450,
@@ -133,7 +133,7 @@
 			"price":222
 		},
 		{
-			"imgUrl":"./images/product/DECO004.png",
+			"imgUrl":"./images/product/deco004.png",
 			"proName":"千里马",
 			"proNo":"GZ004",
 			"originPrice":199,
