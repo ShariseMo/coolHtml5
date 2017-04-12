@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detetion" content="teltphone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>双11主会场</title> 
+	<style type="text/css">
+		@media screen and (max-width:480px){
+			.brandItem .brandImg img{width:100%;height:160px;}
+			.proItem .proImg img{width:100%;height:140px;}
+		}
+		@media screen and (min-width:480px){
+			.brandItem .brandImg img{width:100%;height:320px;}
+			.proItem .proImg img{width:100%;height:280px;}
+		}
+		.clear{clear:both;}
+		.btn1{display:inline-block;width:93%;margin:2%;padding:1.5%;background:#FF1B50;border-radius:3px;color:#fff;text-align:center;text-decoration: none;}
+		*{margin:0;padding:0;}
+		body{width:100%;font-family:"Microsoft yahei";}
+		ul{list-style-type: none;}
+		img{width:100%;}
+		.main{padding-bottom:50px;background:#C10921;}
+		.header{width:98%;margin:0 auto;}
+		.spike{position:relative;}
+		.spike p{position:absolute;bottom:23%;right:5%;color:#fff;font-size:14px;}
+		.spike span{display:inline-block;width:22px;height:18px;line-height:18px;margin:0 1.5px;text-align:center;color:#EE2F50;background:#fff;}
+		.classify{clear:both;}
+		.classify li{float:left;width:32.33%;margin:1% 0;}
+		.classify li:nth-child(2){margin-left:1.5%;margin-right:1.5%;}
+		.hotBrand,.lamp,.furniture,.decoration{margin-bottom:1%;}
+		/*最热品牌*/
+		.brandList .brandItem{background:#fff;width:48%;margin:1%;padding-bottom:1%;float:left;}
+		.brandItem .brandImg{width:92%;margin:4% auto;border:1px solid #ccc;}
+		.brandItem h4{text-align:center;font-size:14px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;}
+		.btn1{display:inline-block;width:95%;margin:2.5%;padding:1.5% 0;background:#FF1B50;text-align:center;color:#fff;border-radius:3px;text-decoration: none}
+		/*产品*/
+		.typeList{width:100%;height:45px;line-height:45px;background:#fff;}
+		.typeList ul li{width:80px;height:40px;line-height:40px;text-align:center;font-weight:bold;float:left;}
+		.active{color:#FC1B4F;border-bottom:5px solid #FC1B4F;}
+		.proList .proItem {background:#fff;width:48%;margin:1%;padding-bottom:1%;float:left;}
+		.proItem .proImg{width:100%;background:#F6F6F6;}
+		.proItem h4{text-align:center;font-size:14px;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;}
+		.proItem p{text-align:center;font-size:13px;}
+		.proItem .historyPrice{text-decoration: line-through;color:#ccc;}
+		.proItem .activityPrice{font-size:15px;color:#FF1B50;}
+	</style>
+	</head>
+<body>
+	<div class="main" id="app">
+		<div class="top">
+			<img src="./images/mainVenue/banner.jpg" width="100%">
+		</div>
+		<div class="header">
+			<a href="#"><img src="./images/mainVenue/cs-banner.png" width="100%"></a>
+			<ul class="classify">
+				<li><a href="./furniture.html"><img src="./images/mainVenue/jj-hc.png" width="100%"></a></li>
+				<li><a href="#"><img src="./images/mainVenue/dj-hc.png" width="100%"></a></li>
+				<li><a href="#"><img src="./images/mainVenue/sp-hc.png" width="100%"></a></li>
+				<div class="clear"></div>
+			</ul>
+			<div class="spike">
+				<a href="#">
+					<img src="./images/mainVenue/msjq-banner.png" width="100%">
+					<p>距活动开始
+						<span class="hour">0</span>时
+						<span class="min">0</span>分
+						<span class="second">0</span>秒
+					<p>
+				</a>
+			</div>
+		</div>
+		<!-- 最热品牌 -->
+		<div class="hotBrand" id="hotBrand" >
+			<div class="logo"><img src="./images/mainVenue/zrmpp-title.png" width="100%"></div>
+			<ul class="brandList">
+				<li class="brandItem" v-for="item in brandList">
+					<div class="brandImg"><img :src="item.imgUrl"></div>
+					<h4>{{item.brandName}}</h4>
+					<a href="#" class="btn1">立即进入&nbsp;></a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+
+		<!-- 灯具 -->
+		<div class="lamp">
+			<div class="logo"><img src="./images/mainVenue/dj-title.png" width="100%"></div>
+			<div class="typeList">
+				<ul>
+					<li v-for="(item,index) in lampList" @click="switchTab(index)" :class="{'active':item.selected}">{{item.type}}</li>
+				</ul>
+			</div>
+			<ul class="proList">
+				<li class="proItem" v-for="(item,index) in lampListCur.typePro">
+					<div class="proImg"><img :src="item.imgUrl"></div>
+					<h4>{{item.proName}}</h4>
+					<p class="proNo">{{item.proNo}}</p>
+					<p class="historyPrice">原价：<span>￥{{item.originPrice}}</span></p>
+					<p class="activityPrice">狂欢价：￥{{item.price}}</p>
+					<a href="#" class="btn1">立即购买&nbsp;></a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<!-- 家具 -->
+		<div class="furniture">
+			<div class="logo"><img src="./images/mainVenue/jj-title.png" width="100%"></div>
+			<ul class="proList">
+				<li class="proItem" v-for="item in furList">
+					<div class="proImg"><img :src="item.imgUrl"></div>
+					<h4>{{item.proName}}</h4>
+					<p class="proNo">{{item.proNo}}</p>
+					<p class="historyPrice">原价：<span>￥{{item.originPrice}}</span></p>
+					<p class="activityPrice">狂欢价：￥{{item.price}}</p>
+					<a href="#" class="btn1">立即购买&nbsp;></a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<!-- 饰品 -->
+		<div class="decoration">
+			<div class="logo"><img src="./images/mainVenue/sp-title.png" width="100%"></div>
+			<ul class="proList">
+				<li class="proItem" v-for="item in decoList">
+					<div class="proImg"><img :src="item.imgUrl"></div>
+					<h4>{{item.proName}}</h4>
+					<p class="proNo">{{item.proNo}}</p>
+					<p class="historyPrice">原价：<span>￥{{item.originPrice}}</span></p>
+					<p class="activityPrice">狂欢价：￥{{item.price}}</p>
+					<a href="#" class="btn1">立即购买&nbsp;></a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/vue.js"></script>
+	<script type="text/javascript" src="./js/vue-resource.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// boxLength(80,'.typeList ul li','.typeList ul');
+			$(".typeList ul li").eq(0).addClass("active");
+			$(".typeList ul li").click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			// 倒计时
+			var tt ;
+			setInterval(function(){
+				tt = timeCount("2017-11-11 00:00:00");
+				$(".hour").html(tt['hour']);
+				$(".min").html(tt['min']);
+				$(".second").html(tt['second']);
+			},1000);
+		});
+
+
+		// 倒计时 
+		// var str = "2016-11-11 00:00:00";
+		function timeCount(str){
+			var actiDate = new Date(str).getTime();
+			var now = new Date().getTime();
+			var total = (actiDate - now)/1000;
+			var day = parseInt(total/(24*60*60));
+			var afterDay = total - day*24*60*60;
+			var hour = parseInt(afterDay/(60*60));
+			var afterHour = afterDay - hour*60*60;
+			var min = parseInt(afterHour/60);
+			var afterMin = afterHour - min*60;
+			var second = parseInt(afterMin);
+			if(day<10){
+				day = "0"+day;
+			}
+		 	var less = {
+		 		day:day < 10 ? ('0'+day) : day,
+		 		hour:hour<10 ? ('0'+hour) : hour,
+		 		min:min<10 ? ('0'+min):min,
+		 		second:second<10?('0'+second):second
+		 	}
+			return less;
+		}
+
+
+		// vue
+		var app = new Vue({
+			el:"#app",
+			data:{
+				brandList:[],
+				lampList:[],
+				lampListCur:[],
+				furList:[],
+				decoList:[]
+			},
+			mounted:function(){
+				this.init();
+				this.boxLength();
+			},
+			methods:{
+				init:function(){
+					var _this = this;
+					this.$http.get("data/brand.json").then(function(res){
+						_this.brandList = res.body.brandList;
+						_this.lampList = res.body.lampList;
+						_this.lampListCur = res.body.lampList[0];
+						_this.furList = res.body.furList;
+						this.decoList = res.body.decoList;
+					});
+				},
+				boxLength:function(oneLength,sel,applyEle){
+					var l = $(sel).length;
+					l = l*oneLength + "px";
+					$(applyEle).width(l);
+					$(applyEle).parent().parent().css("overflow","hidden");
+					$(applyEle).parent().css("overflow",'auto');
+				},
+				switchTab:function(index){
+					this.lampList.forEach(function(i){
+						i.selected=false;
+					});
+					this.lampList[index].selected = true;
+					this.lampListCur = this.lampList[index];
+
+				}
+			},
+		});
+
+		
+	</script>
+</body>
+</html>
